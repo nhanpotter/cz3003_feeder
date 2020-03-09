@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/background/Level Select 2.png" type="Texture" id=1]
-[ext_resource path="res://lvl_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://lobby/world_selection/lvl_button.tscn" type="PackedScene" id=2]
 
 [node name="lvl-background" type="TextureRect"]
 anchor_left = -0.00195524
-anchor_right = 0.998045
-anchor_bottom = 2.0
+anchor_top = 0.00195312
+anchor_right = 3.5536
+anchor_bottom = 2.00195
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -15,7 +16,8 @@ __meta__ = {
 [node name="level-button" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2.25261, 412.213 )
 level = 1
-enabled = true
+level_to_load = "res://lobby/world_selection/levels/lvl1scene.tscn"
+score_goal_met = true
 
 [node name="level-button2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 113.753, 211.738 )
@@ -32,3 +34,7 @@ level = 4
 [node name="level-button5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 440.37, 460.643 )
 level = 5
+
+[node name="level-button6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 680, 404 )
+level = 6

@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://art/lvl-buttons/Red Button.png" type="Texture" id=1]
-[ext_resource path="res://lvl_button_sc.gd" type="Script" id=2]
-[ext_resource path="res://art/lvl-buttons/Green Button 2.png" type="Texture" id=5]
+[ext_resource path="res://lobby/world_selection/lvl_button.gd" type="Script" id=1]
+[ext_resource path="res://art/lvl-buttons/Red Button.png" type="Texture" id=2]
+[ext_resource path="res://art/lvl-buttons/Green Button 2.png" type="Texture" id=3]
 
 [node name="level-button" type="Node2D"]
-script = ExtResource( 2 )
-blocked_texture = ExtResource( 1 )
-open_texture = ExtResource( 5 )
+script = ExtResource( 1 )
+blocked_texture = ExtResource( 2 )
+open_texture = ExtResource( 3 )
 
 [node name="TextureButton" type="TextureButton" parent="."]
 margin_left = 27.3983
@@ -15,7 +15,7 @@ margin_top = 25.0847
 margin_right = 155.398
 margin_bottom = 153.085
 rect_scale = Vector2( 0.9, 0.9 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

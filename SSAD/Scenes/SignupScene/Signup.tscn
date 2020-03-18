@@ -1,0 +1,141 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Fonts/orange kid title.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Fonts/orange kid small.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/SignupScene/SignupScript.gd" type="Script" id=3]
+
+[node name="Signup" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1024.0
+margin_bottom = 576.0
+custom_fonts/font = ExtResource( 1 )
+text = "New Signup"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 576.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+margin_left = 342.0
+margin_top = 182.0
+margin_right = 682.0
+margin_bottom = 394.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+margin_right = 186.0
+margin_bottom = 212.0
+
+[node name="id" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = -1.0
+margin_right = 186.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 150, 50 )
+custom_fonts/font = ExtResource( 2 )
+text = "Login ID:"
+align = 2
+valign = 1
+
+[node name="pw" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 53.0
+margin_right = 186.0
+margin_bottom = 103.0
+rect_min_size = Vector2( 150, 50 )
+custom_fonts/font = ExtResource( 2 )
+text = "Password:"
+align = 2
+valign = 1
+
+[node name="pw2" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 107.0
+margin_right = 186.0
+margin_bottom = 157.0
+rect_min_size = Vector2( 150, 50 )
+custom_fonts/font = ExtResource( 2 )
+text = "Confirm Password:"
+align = 2
+valign = 1
+
+[node name="email" type="Label" parent="CenterContainer/HBoxContainer/VBoxContainer"]
+margin_top = 161.0
+margin_right = 186.0
+margin_bottom = 211.0
+rect_min_size = Vector2( 150, 50 )
+custom_fonts/font = ExtResource( 2 )
+text = "Email:"
+align = 2
+valign = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+margin_left = 190.0
+margin_right = 340.0
+margin_bottom = 212.0
+
+[node name="idinput" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 150.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 150, 50 )
+custom_fonts/font = ExtResource( 2 )
+max_length = 50
+
+[node name="pwinput" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 54.0
+margin_right = 150.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 150, 50 )
+custom_fonts/font = ExtResource( 2 )
+max_length = 50
+
+[node name="confirmPassword" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 108.0
+margin_right = 150.0
+margin_bottom = 158.0
+rect_min_size = Vector2( 150, 50 )
+custom_fonts/font = ExtResource( 2 )
+max_length = 50
+
+[node name="emailinput" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 162.0
+margin_right = 150.0
+margin_bottom = 212.0
+rect_min_size = Vector2( 150, 50 )
+custom_fonts/font = ExtResource( 2 )
+max_length = 50
+
+[node name="SignupButton" type="Button" parent="."]
+margin_left = 821.531
+margin_top = 478.236
+margin_right = 979.531
+margin_bottom = 533.236
+custom_fonts/font = ExtResource( 2 )
+text = "Confirm Signup"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pwError" type="AcceptDialog" parent="."]
+margin_left = 444.961
+margin_top = 263.476
+margin_right = 707.961
+margin_bottom = 352.476
+dialog_text = "Passwords don't match!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="CenterContainer/HBoxContainer/VBoxContainer2/idinput" to="." method="_on_idinput_text_changed"]
+[connection signal="text_changed" from="CenterContainer/HBoxContainer/VBoxContainer2/pwinput" to="." method="_on_pwinput_text_changed"]
+[connection signal="text_changed" from="CenterContainer/HBoxContainer/VBoxContainer2/confirmPassword" to="." method="_on_confirmPassword_text_changed"]
+[connection signal="text_changed" from="CenterContainer/HBoxContainer/VBoxContainer2/emailinput" to="." method="_on_emailinput_text_changed"]
+[connection signal="pressed" from="SignupButton" to="." method="_on_SignupButton_pressed"]
+[connection signal="about_to_show" from="pwError" to="." method="_on_pwError_about_to_show"]

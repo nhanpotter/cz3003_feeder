@@ -1,0 +1,102 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/loginScene/loginScript.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/orange kid title.tres" type="DynamicFont" id=2]
+
+[node name="Login" type="Node2D"]
+scale = Vector2( 0.799486, 0.800051 )
+script = ExtResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_bottom = 1.0
+margin_left = -1.58667
+margin_top = 0.902496
+margin_right = 1278.41
+margin_bottom = 720.902
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+margin_left = 437.0
+margin_top = 258.0
+margin_right = 841.0
+margin_bottom = 461.0
+
+[node name="idpw" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 203.0
+
+[node name="ID" type="Label" parent="CenterContainer/HBoxContainer/idpw"]
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "ID:"
+align = 1
+valign = 1
+
+[node name="Password" type="Label" parent="CenterContainer/HBoxContainer/idpw"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 200, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "Password:"
+align = 1
+valign = 1
+
+[node name="idpwdetails" type="VBoxContainer" parent="CenterContainer/HBoxContainer"]
+margin_left = 204.0
+margin_right = 404.0
+margin_bottom = 203.0
+
+[node name="inputid" type="LineEdit" parent="CenterContainer/HBoxContainer/idpwdetails"]
+margin_right = 200.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 200, 70 )
+custom_fonts/font = ExtResource( 2 )
+max_length = 20
+
+[node name="inputpw" type="LineEdit" parent="CenterContainer/HBoxContainer/idpwdetails"]
+margin_top = 74.0
+margin_right = 200.0
+margin_bottom = 144.0
+rect_min_size = Vector2( 200, 70 )
+custom_fonts/font = ExtResource( 2 )
+max_length = 20
+secret = true
+
+[node name="Login" type="Button" parent="CenterContainer/HBoxContainer/idpwdetails"]
+margin_top = 148.0
+margin_right = 200.0
+margin_bottom = 203.0
+custom_fonts/font = ExtResource( 2 )
+text = "Login"
+
+[node name="Login2" type="Button" parent="."]
+margin_left = 1041.26
+margin_top = 632.05
+margin_right = 1241.26
+margin_bottom = 687.05
+custom_fonts/font = ExtResource( 2 )
+text = "Login"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Signup" type="Button" parent="."]
+margin_left = 86.1199
+margin_top = 633.073
+margin_right = 286.12
+margin_bottom = 688.073
+custom_fonts/font = ExtResource( 2 )
+text = "Signup"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="text_changed" from="CenterContainer/HBoxContainer/idpwdetails/inputid" to="." method="_on_inputid_text_changed"]
+[connection signal="text_changed" from="CenterContainer/HBoxContainer/idpwdetails/inputpw" to="." method="_on_inputpw_text_changed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/idpwdetails/Login" to="." method="_on_Login_pressed"]
+[connection signal="pressed" from="Login2" to="." method="_on_Login2_pressed"]
+[connection signal="pressed" from="Signup" to="." method="_on_Signup_pressed"]

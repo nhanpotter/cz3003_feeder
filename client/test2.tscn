@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://test2.gd" type="Script" id=1]
+
+[node name="test" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 4.0
+margin_top = -1.948
+margin_right = 1019.0
+margin_bottom = 605.052
+color = Color( 0.517647, 0.847059, 0.384314, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 78.0
+margin_top = 158.0
+margin_right = 262.0
+margin_bottom = 250.0
+text = "Change Scene"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="."]
+margin_left = 296.0
+margin_top = 158.052
+margin_right = 495.0
+margin_bottom = 248.052
+text = "Singleton Up"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="."]
+margin_left = 81.896
+margin_top = 282.673
+margin_right = 265.896
+margin_bottom = 374.673
+text = "Start Battle"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_Button3_pressed"]

@@ -16,7 +16,21 @@ _global_script_class_icons={
 [application]
 
 config/name="CoderQuest"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Scene_Manager="*res://Scene_Manager.gd"
+Battle_Manager="*res://Battle_Manager.gd"
+Battle_Services="*res://Battle_Services.gd"
+Common_Services="*res://Common_Services.gd"
+Expedition_Creator="*res://Expedition_Creator.gd"
+Expedition_Lobby_Manager="*res://Expedition_Lobby_Manager.gd"
+Expedition_Manager="*res://Expedition_Manager.gd"
+Network_Services="*res://Network_Services.gd"
+WorldMap_Creator="*res://World_Map_Creator.gd"
+CheckNConnections="*res://CheckNConnections.gd"
 
 [display]
 

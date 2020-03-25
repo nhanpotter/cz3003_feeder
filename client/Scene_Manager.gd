@@ -9,6 +9,8 @@ var scenes = {"login":"res://scenes/Login/loginScene.tscn",
 				"signup":"res://scenes/Signup/Signup.tscn",
 				"mainmenu":"res://scenes/MainMenu/mainMenuScene.tscn",
 				"battle":"res://scenes/Battle/Battle.tscn",
+				"levelMap" : "res://scenes/MapScene/mapScene.tscn",
+				"world" : "res://scenes/World/World.tscn"
 				}
 
 var previous_scene = null

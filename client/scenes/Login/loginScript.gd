@@ -17,10 +17,7 @@ func init(params):
 func _on_Login_pressed():
 	#add login manager
 	var params = {"inputid": inputid, "inputpw": inputpw}
-	if true:
-		Login_Manager.init_main(params)
-	else:
-		$LoginFail.popup_centered()
+	Login_Manager.init_main(params)
 	#pass # Replace with function body.
 
 

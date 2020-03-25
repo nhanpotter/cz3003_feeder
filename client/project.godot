@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Control",
+"class": "Joystick",
+"language": "GDScript",
+"path": "res://expedition_assets/Joystick/Joystick.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://expedition_assets/Player.gd"
+} ]
 _global_script_class_icons={
-
+"Joystick": "",
+"Player": ""
 }
 
 [application]
@@ -32,12 +43,17 @@ Network_Services="*res://Network_Services.gd"
 WorldMap_Creator="*res://World_Map_Creator.gd"
 CheckNConnections="*res://CheckNConnections.gd"
 Login_Manager="*res://Login_Manager.gd"
-MainMenu_Manager="*res://MainMenu_Manager.gd"
+LevelMapMenu_Manager="*res://LevelMapMenu_Manager.gd"
+LevelMap_Manager="*res://LevelMap_Manager.gd"
 
 [display]
 
 window/size/height=576
 window/size/resizable=false
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 

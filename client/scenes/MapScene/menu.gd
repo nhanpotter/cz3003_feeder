@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -9,13 +9,10 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-	
-#load sprite assets
-func get_sprite(spriteId):
-	var path = "res://common_assets/Character/" + spriteId
-	var sprite = load(path)
-	pass
 
+func init(params):
+	get_node("Panel").set_textList(params)
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

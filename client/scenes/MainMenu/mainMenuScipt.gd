@@ -72,7 +72,9 @@ func _on_FightTest_pressed():
 
 
 func _on_Expedition_pressed():
-	x = get_tree().change_scene("res://Scenes/expeditionScene/World Select/lobby/main_lobby.tscn")
+	var path = Scene_Manager.get_scene_path("levelMap")
+	var textList = LevelMapMenu_Manager.getTextList("some userdata")
+	Scene_Manager.goto_scene(path, textList)
 	pass # Replace with function body.
 
 

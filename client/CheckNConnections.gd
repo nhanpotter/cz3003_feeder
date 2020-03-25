@@ -1,13 +1,14 @@
-
 extends HTTPRequest
 
 signal connection_success
 signal error_connection_failed(code, message)
 signal error_ssl_handshake
+signal connection_timed_out
 
 var check_timer = null
 var request_counter = 0
 var requests_complete_counter = 0
+
 
 func _ready():
 	
@@ -35,6 +36,9 @@ func _check_connection():
 		push_error("Server response timed out!")
 		print("Server response timed out!")
 		# TODO : handle server time out
+		emit_signal("connection_timed_out",0,"timed out")
+
+
 func on_request_result(result, response_code, headers, body):
 	match result:
 		RESULT_SUCCESS:

@@ -1,21 +1,17 @@
-extends Node
+extends Button
 
 
 # Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# var a: int = 2
+# var b: String = "text"
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	pass # Replace with function body.
-	
-#load sprite assets
-func get_sprite(spriteId):
-	var path = "res://common_assets/Character/" + spriteId
-	var sprite = load(path)
-	pass
 
+func _pressed():
+		get_tree().change_scene("res://Scenes/MapScene/" + name + ".tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
+#func _process(delta: float) -> void:
 #	pass

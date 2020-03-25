@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Network_Services.gd" type="Script" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Common_Services.gd" type="Script" id=12]
 [ext_resource path="res://Analytics_Services.gd" type="Script" id=13]
 [ext_resource path="res://CheckNConnections.gd" type="Script" id=14]
+[ext_resource path="res://Login_Manager.gd" type="Script" id=15]
+[ext_resource path="res://MainMenu_Manager.gd" type="Script" id=16]
 
 [node name="Main" type="Node"]
 script = ExtResource( 2 )
@@ -23,6 +25,15 @@ script = ExtResource( 1 )
 
 [node name="CheckNConnections" type="HTTPRequest" parent="Network_Services"]
 script = ExtResource( 14 )
+
+[node name="ConnectionFail" type="AcceptDialog" parent="Network_Services"]
+visible = true
+margin_right = 83.0
+margin_bottom = 58.0
+dialog_text = "Disconnected! Check internet connection!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Common_Services" type="Node" parent="."]
 script = ExtResource( 12 )
@@ -56,3 +67,9 @@ script = ExtResource( 4 )
 
 [node name="Battle_Manager" type="Node" parent="."]
 script = ExtResource( 8 )
+
+[node name="Login_Manager" type="Node" parent="."]
+script = ExtResource( 15 )
+
+[node name="MainMenu_Manager" type="Node" parent="."]
+script = ExtResource( 16 )

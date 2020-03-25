@@ -32,7 +32,7 @@ func _on_Button2_pressed():
 
 func _on_Button3_pressed():
 	var params = {"self":self_stats,"enemy":enemy_stats,"timer":timer}
-	Battle_Manager.init_battle(params)
+	Battle_Manager.init_login(params)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

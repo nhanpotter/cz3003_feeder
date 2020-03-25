@@ -2,11 +2,6 @@ extends Node
 
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("Main Loaded")
@@ -16,7 +11,7 @@ func _ready():
 
 # function to load the first scene on startup, usually the login page	
 func load_first_scene():
-	var first_scene = Scene_Manager.get_scene_path(1)
+	var first_scene = Scene_Manager.get_scene_path("login")
 	print(first_scene)
 	get_tree().change_scene(first_scene)
 	

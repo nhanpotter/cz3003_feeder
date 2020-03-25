@@ -25,11 +25,12 @@ func check_connection():
 #handling functions on connection error
 func _on_success():
 	#hide this if you do not wish to test and the print messages are annoying
-	#print("Connection Success!!")
+	print("Connection Success!!")
 	pass
 	
 func _on_failure(code, message):
 	print("Connection Failure!!\nCode: ", code, " Message: ", message)
+	
 	
 func _on_fail_ssl_handshake():
 	print("SSL Handshake Error!!")

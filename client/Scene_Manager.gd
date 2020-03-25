@@ -5,10 +5,11 @@ var singleton_test = 0
 
 #variable to track the current active scene displayed
 var current_scene = null
-var scenes = {1:"res://test.tscn",
-				2:"res://test2.tscn",
-				3:"and so on",
-				4:"res://scenes/Battle/Battle.tscn"}
+var scenes = {"login":"res://scenes/Login/loginScene.tscn",
+				"signup":"res://scenes/Signup/Signup.tscn",
+				"mainmenu":"res://scenes/MainMenu/mainMenuScene.tscn",
+				"battle":"res://scenes/Battle/Battle.tscn",
+				}
 
 var previous_scene = null
 # Called when the node enters the scene tree for the first time.

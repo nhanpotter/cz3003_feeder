@@ -31,10 +31,13 @@ Expedition_Manager="*res://Expedition_Manager.gd"
 Network_Services="*res://Network_Services.gd"
 WorldMap_Creator="*res://World_Map_Creator.gd"
 CheckNConnections="*res://CheckNConnections.gd"
+Login_Manager="*res://Login_Manager.gd"
+MainMenu_Manager="*res://MainMenu_Manager.gd"
 
 [display]
 
 window/size/height=576
+window/size/resizable=false
 
 [rendering]
 

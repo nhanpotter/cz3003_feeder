@@ -27,14 +27,25 @@ func _on_Button2_pressed():
 	pass
 
 func _on_Button3_pressed():
-	Network_Services.get_from_server(self,"http://www.mocky.iol/v2/5185415ba171ea3a00704eed")
+	if Network_Services.is_logged_in():
+		Network_Services.get_question_bank_detail(self, "handle_data", 1)
+	else:
+		Network_Services.login(self, "handle_login", "feeder_temp", "dummy123")
 	
 
-func _http_request_completed( result, response_code, headers, body ):
+func handle_login(result, response_code, headers, body):
 	
 	var json = JSON.parse(body.get_string_from_utf8())
-		
+	
 	print(json.result)
+	print(response_code)
+	
+func handle_data(result, response_code, headers, body):
+	var json = JSON.parse(body.get_string_from_utf8())
+	
+	print(json.result)
+	print(response_code)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

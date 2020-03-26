@@ -1,43 +1,22 @@
 extends Node2D
-
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var x
 
 #variables to initialise according to userID
+#char stats to be initialised
 var charLevel = 2
 var charExp = 9
 var charGold = 55
 var charHp = 100
 var charAtt = 8
-var charGender = "F"
-
-#load assets
-var F1 = load("res://Assets/Character/F1.png")
-var F2 = load("res://Assets/Character/F2.png")
-var F3 = load("res://Assets/Character/F3.png")
-var M1 = load("res://Assets/Character/M1.png")
-var M2 = load("res://Assets/Character/M2.png")
-var M3 = load("res://Assets/Character/M3.png")
+var charGender = "M"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if charGender == "F":
-		if charLevel in range(0,3):
-			$Character/charDisplay.set_texture(F1)
-		elif charLevel in range(3,7):
-			$Character/charDisplay.set_texture(F2)
-		else:
-			$Character/charDisplay.set_texture(F3)
-	elif charGender == "M":
-		if charLevel in range(0,3):
-			$Character/charDisplay.set_texture(M1)
-		elif charLevel in range(3,7):
-			$Character/charDisplay.set_texture(M2)
-		else:
-			$Character/charDisplay.set_texture(M3)
+	var spriteid = Common_Services.get_spriteId(charLevel,charGender)
+	#set display texture box according to user account info
+	var sprite = Common_Services.get_sprite(spriteid)
+	$Character/charDisplay.set_texture(sprite)
+	
 	
 	$CharStatsInfo1/LevelValue.set_text(str(charLevel)) 
 	$CharStatsInfo1/ExpValue.set_text(str(charExp))
@@ -56,7 +35,9 @@ func init(params):
 
 
 func _on_Clan_pressed():
-	x = get_tree().change_scene("res://Scenes/clanScene/clanScene.tscn")
+	var path = Scene_Manager.get_scene_path("clan")
+	var params = {}
+	Scene_Manager.goto_scene(path, params)
 	pass # Replace with function body.
 
 

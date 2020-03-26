@@ -10,7 +10,8 @@ var scenes = {"login":"res://scenes/Login/loginScene.tscn",
 				"mainmenu":"res://scenes/MainMenu/mainMenuScene.tscn",
 				"battle":"res://scenes/Battle/Battle.tscn",
 				"levelMap" : "res://scenes/MapScene/mapScene.tscn",
-				"world" : "res://scenes/World/World.tscn"
+				"world" : "res://scenes/World/World.tscn",
+				"clan" : "res://scenes/Clan/clanScene.tscn",
 				}
 
 var previous_scene = null

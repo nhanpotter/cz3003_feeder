@@ -15,7 +15,6 @@ func init_main(params):
 	pass
 	
 func init_signup(params):
-	print("siggggg")
 	var scene_path = Scene_Manager.get_scene_path("signup")
 	Scene_Manager.goto_scene(scene_path,params)
 

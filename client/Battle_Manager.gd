@@ -19,7 +19,7 @@ func _ready():
 
 #starts a new battle
 func init_battle(params):
-	var scene_path = Scene_Manager.get_scene_path(4)
+	var scene_path = Scene_Manager.get_scene_path("battle")
 	player = params["self"]
 	enemy = params["enemy"]
 	Scene_Manager.goto_scene(scene_path,params)

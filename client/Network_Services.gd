@@ -8,8 +8,14 @@ var base_url = "http://172.21.148.177:7000/"
 var token = ""
 var result = ''
 signal request_finished
+onready var layer = CanvasLayer.new()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	
+	
 	check_connection()
 	
 
@@ -18,16 +24,30 @@ func check_connection():
 	CheckNConnections.connect("connection_success", self, "_on_success")
 	CheckNConnections.connect("error_connection_failed", self, "_on_failure")
 	CheckNConnections.connect("error_ssl_handshake", self, "_on_fail_ssl_handshake")
+	CheckNConnections.connect("connection_timed_out",self,"_on_failure")
 	pass 
 
 #handling functions on connection error
 func _on_success():
 	#hide this if you do not wish to test and the print messages are annoying
 	#print("Connection Success!!")
+	
+	
+	
 	pass
 	
 func _on_failure(code, message):
+	layer.queue_free()
 	print("Connection Failure!!\nCode: ", code, " Message: ", message)
+	layer = CanvasLayer.new()
+	layer.set_layer(2)
+	
+	var diag = AcceptDialog.new()
+	diag.get_label().text = "CONNECTION LOST, PLEASE CHECK CONNECTION"
+	layer.add_child(diag)
+	self.add_child(layer)
+	diag.popup_centered()
+	
 	
 func _on_fail_ssl_handshake():
 	print("SSL Handshake Error!!")

@@ -1,0 +1,277 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://common_assets/Fonts/newsignup.tres" type="DynamicFont" id=1]
+[ext_resource path="res://common_assets/Fonts/mainmenu.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/MainMenu/mainMenuScipt.gd" type="Script" id=3]
+
+[node name="MainMenu" type="Node2D"]
+scale = Vector2( 0.799728, 0.798897 )
+script = ExtResource( 3 )
+
+[node name="GameName" type="VBoxContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="GameName"]
+margin_right = 1280.0
+margin_bottom = 49.0
+
+[node name="GameName" type="Label" parent="GameName/CenterContainer"]
+margin_left = 559.0
+margin_right = 720.0
+margin_bottom = 49.0
+custom_fonts/font = ExtResource( 1 )
+text = "Game Name"
+
+[node name="Character" type="HBoxContainer" parent="."]
+anchor_bottom = 100.0
+margin_top = 100.0
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="charDisplay" type="TextureRect" parent="Character"]
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CharStats1" type="VBoxContainer" parent="."]
+margin_left = 630.0
+margin_top = 150.0
+margin_right = 660.0
+margin_bottom = 640.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="CharStats1"]
+margin_right = 56.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 2 )
+text = "Level:"
+align = 2
+
+[node name="Exp" type="Label" parent="CharStats1"]
+margin_top = 41.0
+margin_right = 56.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 2 )
+text = "Exp:"
+align = 2
+
+[node name="Gold" type="Label" parent="CharStats1"]
+margin_top = 82.0
+margin_right = 56.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 2 )
+text = "Gold:"
+align = 2
+
+[node name="CharStatsInfo1" type="VBoxContainer" parent="."]
+margin_left = 710.0
+margin_top = 150.0
+margin_right = 830.0
+margin_bottom = 640.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelValue" type="Label" parent="CharStatsInfo1"]
+margin_right = 120.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+
+[node name="ExpValue" type="Label" parent="CharStatsInfo1"]
+margin_top = 41.0
+margin_right = 120.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+
+[node name="GoldValue" type="Label" parent="CharStatsInfo1"]
+margin_top = 82.0
+margin_right = 120.0
+margin_bottom = 119.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+
+[node name="CharStats2" type="VBoxContainer" parent="."]
+margin_left = 830.0
+margin_top = 150.0
+margin_right = 930.0
+margin_bottom = 640.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hp" type="Label" parent="CharStats2"]
+margin_right = 100.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 2 )
+text = "Hp:"
+align = 2
+
+[node name="Att" type="Label" parent="CharStats2"]
+margin_top = 41.0
+margin_right = 100.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 2 )
+text = "Att:"
+align = 2
+
+[node name="CharStatsInfo2" type="VBoxContainer" parent="."]
+margin_left = 930.0
+margin_top = 150.0
+margin_right = 1050.0
+margin_bottom = 640.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HpValue" type="Label" parent="CharStatsInfo2"]
+margin_right = 120.0
+margin_bottom = 37.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+
+[node name="AttValue" type="Label" parent="CharStatsInfo2"]
+margin_top = 41.0
+margin_right = 120.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+
+[node name="Menu1" type="VBoxContainer" parent="."]
+margin_top = 640.0
+margin_right = 1280.0
+margin_bottom = 720.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu1"]
+margin_right = 1280.0
+margin_bottom = 80.0
+
+[node name="Expedition" type="Button" parent="Menu1/HBoxContainer"]
+margin_right = 210.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 210, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "Expedition"
+
+[node name="Clan" type="Button" parent="Menu1/HBoxContainer"]
+margin_left = 214.0
+margin_right = 424.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 210, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "Clan"
+
+[node name="Custom" type="Button" parent="Menu1/HBoxContainer"]
+margin_left = 428.0
+margin_right = 638.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 210, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "Custom"
+
+[node name="Settings" type="Button" parent="Menu1/HBoxContainer"]
+margin_left = 642.0
+margin_right = 852.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 210, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "Settings"
+
+[node name="Logout" type="Button" parent="Menu1/HBoxContainer"]
+margin_left = 856.0
+margin_right = 1066.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 210, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "Logout"
+
+[node name="Menu2" type="HBoxContainer" parent="."]
+margin_left = 1080.0
+margin_top = 150.0
+margin_right = 1280.0
+margin_bottom = 640.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu2"]
+margin_right = 200.0
+margin_bottom = 490.0
+
+[node name="Shop" type="Button" parent="Menu2/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 200, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "Shop"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Question" type="Button" parent="Menu2/VBoxContainer"]
+margin_top = 84.0
+margin_right = 200.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 200, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "Question"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FightTest" type="Button" parent="Menu2/VBoxContainer"]
+margin_top = 168.0
+margin_right = 200.0
+margin_bottom = 248.0
+rect_min_size = Vector2( 200, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "Fight Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MapTest" type="Button" parent="Menu2/VBoxContainer"]
+margin_top = 252.0
+margin_right = 200.0
+margin_bottom = 332.0
+rect_min_size = Vector2( 200, 80 )
+custom_fonts/font = ExtResource( 2 )
+text = "MapTest"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logoutConfirm" type="ConfirmationDialog" parent="."]
+margin_left = -3.58096
+margin_top = 16.132
+margin_right = 196.419
+margin_bottom = 86.132
+dialog_text = "Confirm Logout?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Menu1/HBoxContainer/Expedition" to="." method="_on_Expedition_pressed"]
+[connection signal="pressed" from="Menu1/HBoxContainer/Clan" to="." method="_on_Clan_pressed"]
+[connection signal="pressed" from="Menu1/HBoxContainer/Custom" to="." method="_on_Custom_pressed"]
+[connection signal="pressed" from="Menu1/HBoxContainer/Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Menu1/HBoxContainer/Logout" to="." method="_on_Logout_pressed"]
+[connection signal="pressed" from="Menu2/VBoxContainer/Shop" to="." method="_on_Shop_pressed"]
+[connection signal="pressed" from="Menu2/VBoxContainer/Question" to="." method="_on_Question_pressed"]
+[connection signal="pressed" from="Menu2/VBoxContainer/FightTest" to="." method="_on_FightTest_pressed"]
+[connection signal="pressed" from="Menu2/VBoxContainer/MapTest" to="." method="_on_MapTest_pressed"]
+[connection signal="confirmed" from="logoutConfirm" to="." method="_on_logoutConfirm_confirmed"]
+[connection signal="custom_action" from="logoutConfirm" to="." method="_on_logoutConfirm_custom_action"]

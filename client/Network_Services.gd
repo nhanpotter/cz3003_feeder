@@ -4,7 +4,7 @@ extends HTTPRequest
 # Declare member variables here. Examples:
 const GET_REQUEST = 0
 const POST_REQUEST = 1
-var base_url = "http://172.21.148.177:7000/"
+var base_url = "https://coderquest-server.herokuapp.com/"
 var token = ""
 var result = ''
 signal request_finished
@@ -53,12 +53,30 @@ func _on_fail_ssl_handshake():
 	print("SSL Handshake Error!!")
 	
 func _on_handle_login(result, response_code, headers, body):
-	var json = JSON.parse(body.get_string_from_utf8())
-	var auth_token = json.result.auth_token
-	token = auth_token
+	var body_string = body.get_string_from_utf8()
+	var success = handle_result_from_request(result, body_string)
+	if not success:
+		return
+	
+	var json = JSON.parse(body_string)
+	if response_code == 200:
+		var auth_token = json.result.auth_token
+		token = auth_token
+	else:
+		# Error Handling
+		pass
 
 func _on_handle_logout(result, response_code, headers, body):
-	token = ""
+	var body_string = body.get_string_from_utf8()
+	var success = handle_result_from_request(result, body_string)
+	if not success:
+		return
+
+	if response_code == 204:
+		token = ""
+	else:
+		# Error Handling
+		pass
 	
 ###############
 # Util
@@ -105,13 +123,24 @@ func _request_server(caller, url, callback, request_type=GET_REQUEST, body_data=
 	elif request_type == POST_REQUEST:
 		error = _make_post_request(http_node, url, body_data, headers, false)
 		
-	# Log Error
-	if error != OK:
-		push_error("An error occurred in the HTTP request.")
-	elif error == ERR_CANT_CONNECT:
-		push_error("An error occured in the HTTP request.")
 		
 	return http_node
+	
+	
+func handle_result_from_request(result, body_string):
+	if result == RESULT_SUCCESS:
+		return true
+	else:
+		layer = CanvasLayer.new()
+		layer.set_layer(2)
+		
+		var diag = AcceptDialog.new()
+		diag.get_label().text = body_string
+		layer.add_child(diag)
+		self.add_child(layer)
+		diag.popup_centered()
+		
+		return false
 	
 ################ API Endpoints ####################################
 ### Instruction 
@@ -187,11 +216,31 @@ func get_world(caller, callback, world_id):
 	var url = "game/world/{id}/".format({"id": world_id})
 	_request_server(caller, url, callback)
 	
+
+func get_npc(caller, callback, npc_id):
+	var url = "game/npc/{id}/".format({"id": npc_id})
+	_request_server(caller, url, callback)
+
+
+func defeat_npc(caller, callback, npc_id):
+	var url = "game/npc/{id}/defeat/".format({"id": npc_id})
+	_request_server(caller, url, callback)
+
 	
 func get_question_bank_detail(caller, callback, question_bank_id):
 	var url = "course/question_bank/detail/{id}/".format({"id": question_bank_id})
 	_request_server(caller, url, callback)
 
+
+func get_leaderboard(caller, callback):
+	var url = "account/leaderboard/"
+	_request_server(caller, url, callback)
+
+
+func send_battle_history(caller, callback, list_question):
+	var url = "analytics/send_history/"
+	var body_data = list_question
+	_request_server(caller, url, callback, POST_REQUEST, body_data)
  
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

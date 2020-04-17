@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/level map.jpg-085844361522140ad276a34e738d1364.stex"
+path="res://.import/signupBG.jpg-7347a87092e38ae1bd4e9350dbe2fe78.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://common_assets/Map/level map.jpg"
-dest_files=[ "res://.import/level map.jpg-085844361522140ad276a34e738d1364.stex" ]
+source_file="res://common_assets/Login/signupBG.jpg"
+dest_files=[ "res://.import/signupBG.jpg-7347a87092e38ae1bd4e9350dbe2fe78.stex" ]
 
 [params]
 

@@ -10,7 +10,8 @@ var question_bank = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	set_sprite(stats["npc_avatar"]["npc_type"])
+	#set_sprite(stats["npc_avatar"]["npc_type"])
+	
 	Network_Services.get_question_bank_detail(self,"handle_question_bank",stats["question_bank"])
 	print("Enemy loaded with data : " + str(stats["npc_avatar"]))
 	show_marker()

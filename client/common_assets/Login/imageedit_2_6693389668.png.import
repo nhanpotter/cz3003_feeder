@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/0_Blacksmith_Idle_000.png-528dff129ab4622f9ab30b4c20f9ed1f.stex"
+path="res://.import/imageedit_2_6693389668.png-72d5f49ae14ebd0ff02d8c12ceb13684.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://expedition_assets/0_Blacksmith_Idle_000.png"
-dest_files=[ "res://.import/0_Blacksmith_Idle_000.png-528dff129ab4622f9ab30b4c20f9ed1f.stex" ]
+source_file="res://common_assets/Login/imageedit_2_6693389668.png"
+dest_files=[ "res://.import/imageedit_2_6693389668.png-72d5f49ae14ebd0ff02d8c12ceb13684.stex" ]
 
 [params]
 

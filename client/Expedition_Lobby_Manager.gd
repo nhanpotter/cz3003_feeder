@@ -16,6 +16,7 @@ func init_lobby():
 
 func request_expedition_list():
 	print("getting expeditions...") #debug
+	
 	Network_Services.get_lobby(self,"on_lobby_receive")
 
 
@@ -23,7 +24,7 @@ func request_expedition_list():
 func on_lobby_receive(result, response_code, headers, body):
 	var json = JSON.parse(body.get_string_from_utf8())
 
-	expedition_list = []
+	expedition_list.clear()
 	for expedition in json.result:
 		expedition_list.append(expedition)
 	print(expedition_list)	
@@ -32,6 +33,9 @@ func on_lobby_receive(result, response_code, headers, body):
 func get_expeditions():
 	request_expedition_list()
 	return 	expedition_list
+
+func clear_expeditions():
+	expedition_list.clear()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

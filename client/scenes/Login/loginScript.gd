@@ -89,14 +89,6 @@ func handle_first_login(result,response_code,headers,body):
 		Login_Manager.init_avatar_creation(params)
 	
 
-func _on_Login2_pressed():
-	
-	var main = Scene_Manager.get_scene_path("mainmenu")
-	var params = {}
-	Scene_Manager.goto_scene(main, params)
-	pass # Replace with function body.
-
-
 
 func _on_inputid_text_changed(new_text):
 	inputid = new_text

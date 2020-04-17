@@ -29,8 +29,11 @@ func check_answer(question,selected):
 		return false
 
 func deal_damage(self_stats,enemy_stats,time_left,timer_value):
+	time_left = float(time_left)
+	timer_value = float(timer_value)
 	print("damage dealt : ") #debug
-	var damage_dealt = self_stats["attack"] * int((time_left/timer_value)*2)
+	
+	var damage_dealt = self_stats["attack"] * int((time_left/timer_value)*5)
 	if damage_dealt == 0:
 		damage_dealt = (self_stats["attack"]/2)
 	print(damage_dealt) #debug
@@ -39,8 +42,14 @@ func deal_damage(self_stats,enemy_stats,time_left,timer_value):
 	return enemy_hp_left
 
 func take_damage(self_stats,enemy_stats,time_left,timer_value):
+	time_left = float(time_left)
+	timer_value = float(timer_value)
 	print("taking damage : ") #debug
-	var damage_dealt = enemy_stats["attack"] * int((timer_value-time_left)/2)
+	var damage_dealt = enemy_stats["attack"]
+	if int(time_left/timer_value) == 0:
+		 damage_dealt = enemy_stats["attack"] * 2
+	else:
+		 damage_dealt = enemy_stats["attack"] * int((time_left/timer_value)*2)
 	print(damage_dealt) #debug
 	var self_hp_left = self_stats["hp"] - damage_dealt
 	Common_Services.get_user_stats()

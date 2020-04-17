@@ -8,7 +8,7 @@ var init_flag = false
 
 var background1 = preload("res://expedition_assets/background1.tscn")
 var background2 = preload("res://expedition_assets/background2.tscn")
-var background3 = preload("res://expedition_assets/background2.tscn")
+var background3 = preload("res://expedition_assets/background3.tscn")
 var npc = preload("res://scenes/World/npc.tscn")
 var player = preload("res://scenes/World/Player.tscn")
 var background_instance
@@ -47,11 +47,14 @@ func get_children_position():
 func init(params):
 	print("world initializing with parameters : ") #debug
 	print(params) #debug
-	var background = params.pop_back()
+	var config = params.pop_back()
+	var background = config["background"]
+	var world_level = config["level"]
+	var topic = config["topic"]
 	for enemy in params:
 		create_npc(enemy)
 	create_world_map(background)
-	create_player()
+	create_player(world_level,topic)
 	init_flag = true
 
 func check_npc_status():
@@ -88,7 +91,7 @@ func create_world_map(background_type):
 		background_instance = background2.instance()
 		add_child(background_instance)
 		var cell_size = (background_instance.get_node("base").get_used_rect().size)
-		background_size = 64 *cell_size
+		background_size = 20 *cell_size
 		print(background_size) #debug
 	elif background_type == 3:
 		background_instance = background3.instance()
@@ -108,8 +111,9 @@ func create_npc(npc_data):
 	
 
 
-func create_player():
+func create_player(world_level,topic):
 	player_instance = player.instance()
+	player_instance.set_description(world_level,topic)
 	add_child(player_instance)
 
 func initiate_battle(npc):

@@ -2,6 +2,8 @@ extends Node
 var temp_background_type
 var temp_world_id
 var temp_is_finished
+var temp_level
+var temp_topic
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("World manager loaded!") #debug
@@ -12,6 +14,8 @@ func init_world(world):
 	temp_background_type = world["background_type"]
 	temp_world_id = world["id"]
 	temp_is_finished = world["is_finished"]
+	temp_level = world["section"]["level"]
+	temp_topic = world["section"]["topic"]
 
 	print("This world id is : " + str(temp_world_id)) #debug
 	print("This world is of background type : " + str(temp_world_id))
@@ -29,7 +33,8 @@ func on_world_received(result,response_code,headers,body):
 	else:
 		var params = json.result
 		var path = Scene_Manager.get_scene_path("world")
-		params.append(temp_background_type)
+		var world_config = {"background" : temp_background_type,"level":temp_level,"topic":temp_topic}
+		params.append(world_config)
 		Scene_Manager.goto_scene(path,params)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

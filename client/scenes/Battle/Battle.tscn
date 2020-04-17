@@ -223,6 +223,7 @@ layer = 2
 anims/Battle_Transition = SubResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
+visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0.0588235, 0.054902, 0.054902, 1 )

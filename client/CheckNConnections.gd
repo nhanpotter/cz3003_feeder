@@ -17,7 +17,7 @@ func _ready():
 	
 	check_timer = Timer.new()
 	check_timer.one_shot = false
-	check_timer.wait_time = 3
+	check_timer.wait_time = 5
 	check_timer.connect("timeout", self, "_check_connection")
 	add_child(check_timer)
 	connect("request_completed", self, "on_request_result")

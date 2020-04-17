@@ -75,17 +75,6 @@ margin_bottom = 203.0
 custom_fonts/font = ExtResource( 2 )
 text = "Login"
 
-[node name="Login2" type="Button" parent="."]
-margin_left = 1041.26
-margin_top = 632.05
-margin_right = 1241.26
-margin_bottom = 687.05
-custom_fonts/font = ExtResource( 2 )
-text = "Login"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Signup" type="Button" parent="."]
 margin_left = 86.1199
 margin_top = 633.073
@@ -119,6 +108,5 @@ margin_bottom = 27.0
 [connection signal="text_changed" from="CenterContainer/HBoxContainer/idpwdetails/inputid" to="." method="_on_inputid_text_changed"]
 [connection signal="text_changed" from="CenterContainer/HBoxContainer/idpwdetails/inputpw" to="." method="_on_inputpw_text_changed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/idpwdetails/Login" to="." method="_on_Login_pressed"]
-[connection signal="pressed" from="Login2" to="." method="_on_Login2_pressed"]
 [connection signal="pressed" from="Signup" to="." method="_on_Signup_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

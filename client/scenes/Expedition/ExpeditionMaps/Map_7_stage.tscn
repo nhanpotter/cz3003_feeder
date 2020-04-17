@@ -90,7 +90,7 @@ __meta__ = {
 }
 
 [node name="Stage6" type="Sprite" parent="."]
-position = Vector2( 1075.46, 573.835 )
+position = Vector2( 908.258, 254.474 )
 scale = Vector2( 0.261985, 0.283154 )
 texture = ExtResource( 2 )
 
@@ -105,7 +105,7 @@ __meta__ = {
 }
 
 [node name="Stage7" type="Sprite" parent="."]
-position = Vector2( 890.05, 275.078 )
+position = Vector2( 1096.98, 551.514 )
 scale = Vector2( 0.261985, 0.283154 )
 texture = ExtResource( 2 )
 

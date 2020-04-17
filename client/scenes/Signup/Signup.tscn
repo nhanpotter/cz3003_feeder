@@ -124,7 +124,6 @@ __meta__ = {
 }
 
 [node name="pwError" type="AcceptDialog" parent="."]
-visible = true
 margin_left = 4.20193
 margin_top = 16.7
 margin_right = 267.202
@@ -134,8 +133,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="signupSuccess" type="AcceptDialog" parent="."]
+[node name="signError" type="AcceptDialog" parent="."]
 visible = true
+margin_left = 4.20193
+margin_top = 16.7
+margin_right = 267.202
+margin_bottom = 105.7
+dialog_text = "Field Cannot be Empty!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="signupSuccess" type="AcceptDialog" parent="."]
 margin_left = 4.20193
 margin_top = 16.7
 margin_right = 267.202

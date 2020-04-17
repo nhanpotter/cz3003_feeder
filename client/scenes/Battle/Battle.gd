@@ -63,7 +63,7 @@ func _ready():
 #initialize data for battle	
 func init(params):
 	print("this is battle no. " + str(params)) #debug
-	timer_value = 20 #change dynamic later
+	timer_value = 30 #change dynamic later
 	self.self_stats = Battle_Manager.get_self_stats().duplicate(true)
 	self.enemy_stats = Battle_Manager.get_enemy_stats().duplicate(true)
 	var q_bank_temp = Battle_Manager.get_question_bank().duplicate()

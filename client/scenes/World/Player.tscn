@@ -103,6 +103,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Description" type="Label" parent="UI"]
+margin_left = 407.092
+margin_top = 7.75414
+margin_right = 615.092
+margin_bottom = 56.7541
+custom_fonts/font = ExtResource( 5 )
+text = "Testing"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 

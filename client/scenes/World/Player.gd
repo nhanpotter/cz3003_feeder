@@ -15,6 +15,9 @@ onready var sprite_hitbox = get_node("CollisionShape2D")
 func _ready():
 	print("player instance loaded!")
 
+func set_description(level,topic):
+	var text = ("World " + str(level) + ". " + str(topic))
+	$UI/Description.set_text(text)
 
 
 func _input(event):
@@ -64,6 +67,7 @@ func hide_player():
 	$UI.get_child(0).visible = false
 	$UI.get_child(1).visible = false
 	$UI.get_child(2).visible = false
+	$UI.get_node("Description").visible = false
 	self.visible = false
 	$Camera2D.current = false
 
@@ -71,6 +75,7 @@ func show_player():
 	$UI.get_child(0).visible = true
 	$UI.get_child(1).visible = true
 	$UI.get_child(2).visible = true
+	$UI.get_node("Description").visible = true
 	self.visible = true
 	$Camera2D.current = true
 

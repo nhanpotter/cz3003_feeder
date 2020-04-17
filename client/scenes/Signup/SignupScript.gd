@@ -45,17 +45,32 @@ func _on_SignupButton_pressed():
 	
 	if inputPw != confirmPw:
 		$pwError.popup_centered();
+	elif inputPw == null:
+		$signError.popup_centered()
+	elif inputId == null:
+		$signError.popup_centered()
+	elif inputEmail == null:
+		$signError.popup_centered()
 	else:
 		#post request
 		Network_Services.sign_up(self,"handle_signup",inputId,inputEmail,inputPw,confirmPw)
-		$signupSuccess.popup_centered()
+		
 		
 	pass # Replace with function body.
 
 func handle_signup(result,response_code,headers,body):
 	var json = JSON.parse(body.get_string_from_utf8())
 	print(json.result)
-
+	if response_code == 201:
+		$signupSuccess.popup_centered()
+	else:
+		var errors = json.result.values()
+		var error_text = ""
+		for error in errors:
+			var errortemp = error[0]
+			error_text = error_text + str(errortemp) + "\n"
+		$signError.set_text(error_text)
+		$signError.popup_centered()
 
 
 func _on_ToolButton_pressed():

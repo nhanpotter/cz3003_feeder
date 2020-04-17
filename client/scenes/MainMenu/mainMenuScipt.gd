@@ -127,6 +127,7 @@ func _on_MapTest_pressed():
 
 
 func _on_logoutConfirm_confirmed():
+	Expedition_Lobby_Manager.clear_expeditions()
 	Network_Services.logout(self,"handle_logout")
 	
 	pass # Replace with function body.

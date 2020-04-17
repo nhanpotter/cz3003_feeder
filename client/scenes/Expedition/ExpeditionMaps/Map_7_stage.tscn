@@ -1,0 +1,127 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/Expedition/ExpeditionMaps/Map_7_stage.gd" type="Script" id=1]
+[ext_resource path="res://common_assets/Map/red button.png" type="Texture" id=2]
+[ext_resource path="res://common_assets/Map/expedition4.jpg" type="Texture" id=3]
+
+[node name="TextureRect" type="TextureRect"]
+margin_right = 1198.0
+margin_bottom = 720.0
+rect_scale = Vector2( 0.865, 0.834 )
+texture = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stage1" type="Sprite" parent="."]
+position = Vector2( 104.868, 176.694 )
+scale = Vector2( 0.261985, 0.283154 )
+texture = ExtResource( 2 )
+
+[node name="Button1" type="Button" parent="Stage1"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -146.0
+margin_top = -242.0
+margin_right = 180.0
+margin_bottom = 59.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stage2" type="Sprite" parent="."]
+position = Vector2( 138.143, 484.122 )
+scale = Vector2( 0.261985, 0.283154 )
+texture = ExtResource( 2 )
+
+[node name="Button2" type="Button" parent="Stage2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -146.0
+margin_top = -242.0
+margin_right = 180.0
+margin_bottom = 59.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stage3" type="Sprite" parent="."]
+position = Vector2( 354.098, 453.302 )
+scale = Vector2( 0.261985, 0.283154 )
+texture = ExtResource( 2 )
+
+[node name="Button3" type="Button" parent="Stage3"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -146.0
+margin_top = -242.0
+margin_right = 180.0
+margin_bottom = 59.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stage4" type="Sprite" parent="."]
+position = Vector2( 480.244, 219.705 )
+scale = Vector2( 0.261985, 0.283154 )
+texture = ExtResource( 2 )
+
+[node name="Button4" type="Button" parent="Stage4"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -146.0
+margin_top = -242.0
+margin_right = 180.0
+margin_bottom = 59.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stage5" type="Sprite" parent="."]
+position = Vector2( 783.689, 469.441 )
+scale = Vector2( 0.261985, 0.283154 )
+texture = ExtResource( 2 )
+
+[node name="Button5" type="Button" parent="Stage5"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -146.0
+margin_top = -242.0
+margin_right = 180.0
+margin_bottom = 59.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stage6" type="Sprite" parent="."]
+position = Vector2( 1075.46, 573.835 )
+scale = Vector2( 0.261985, 0.283154 )
+texture = ExtResource( 2 )
+
+[node name="Button6" type="Button" parent="Stage6"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -146.0
+margin_top = -242.0
+margin_right = 180.0
+margin_bottom = 59.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stage7" type="Sprite" parent="."]
+position = Vector2( 890.05, 275.078 )
+scale = Vector2( 0.261985, 0.283154 )
+texture = ExtResource( 2 )
+
+[node name="Button7" type="Button" parent="Stage7"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = -146.0
+margin_top = -242.0
+margin_right = 180.0
+margin_bottom = 59.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Stage1/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="Stage2/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Stage3/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="Stage4/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="Stage5/Button5" to="." method="_on_Button5_pressed"]
+[connection signal="pressed" from="Stage6/Button6" to="." method="_on_Button6_pressed"]
+[connection signal="pressed" from="Stage7/Button7" to="." method="_on_Button7_pressed"]

@@ -1,13 +1,75 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Battle/Battle.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://common_assets/Fonts/Login details.tres" type="DynamicFont" id=3]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="Animation" id=1]
+resource_name = "Fade"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.454902, 0.0705882, 0.509804, 1 )
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.482353, 0.0666667, 0.596078, 1 )
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:rect_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 600 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -19,17 +81,32 @@ margin_left = -1.0
 margin_top = 0.999998
 margin_right = 1023.0
 margin_bottom = 577.0
-color = Color( 0.0588235, 0.113725, 0.329412, 1 )
+color = Color( 0.0588235, 0.113725, 0.329412, 0.0745098 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Enemy" type="Sprite" parent="ColorRect"]
+position = Vector2( 703.188, 174.901 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Enemy"]
+anims/Fade = SubResource( 1 )
+
+[node name="Player" type="Sprite" parent="ColorRect"]
+position = Vector2( 281.133, 173.314 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect/Player"]
+anims/Fade = SubResource( 2 )
+
 [node name="Self_HP" type="ProgressBar" parent="."]
-margin_left = 103.0
+margin_left = 98.3346
 margin_top = 289.0
-margin_right = 467.0
-margin_bottom = 330.0
-custom_styles/fg = SubResource( 1 )
+margin_right = 462.335
+margin_bottom = 338.0
+custom_styles/fg = SubResource( 3 )
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.933333, 0.964706, 0.952941, 1 )
 custom_colors/font_color_shadow = Color( 0.0313726, 0.0352941, 0.0313726, 1 )
 rounded = true
@@ -42,19 +119,20 @@ margin_left = 542.0
 margin_top = 291.0
 margin_right = 908.0
 margin_bottom = 332.0
-custom_styles/fg = SubResource( 2 )
+custom_styles/fg = SubResource( 4 )
+custom_fonts/font = ExtResource( 3 )
 rounded = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect6" type="ColorRect" parent="."]
-margin_left = 113.161
-margin_top = 21.2161
-margin_right = 891.161
-margin_bottom = 85.2161
+margin_left = 113.0
+margin_top = 21.0
+margin_right = 891.0
+margin_bottom = 68.0
 rect_pivot_offset = Vector2( 223.15, 2.21606 )
-color = Color( 0.270588, 0.113725, 0.345098, 1 )
+color = Color( 0.0588235, 0.0352941, 0.0705882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -64,6 +142,7 @@ margin_left = 117.0
 margin_top = 23.0
 margin_right = 888.0
 margin_bottom = 81.0
+custom_fonts/font = ExtResource( 3 )
 text = "This is a test Question
 "
 align = 1
@@ -78,6 +157,7 @@ margin_left = 454.252
 margin_top = 97.0
 margin_right = 543.252
 margin_bottom = 159.0
+custom_fonts/font = ExtResource( 3 )
 text = "TIMER
 "
 align = 1
@@ -93,6 +173,7 @@ margin_top = 351.028
 margin_right = 459.784
 margin_bottom = 425.028
 rect_pivot_offset = Vector2( 236.23, 74 )
+custom_fonts/font = ExtResource( 3 )
 text = "Answer1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -104,6 +185,7 @@ margin_top = 349.92
 margin_right = 902.997
 margin_bottom = 423.92
 rect_pivot_offset = Vector2( 236.23, 74 )
+custom_fonts/font = ExtResource( 3 )
 text = "Answer2"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -115,6 +197,7 @@ margin_top = 444.102
 margin_right = 462.0
 margin_bottom = 518.102
 rect_pivot_offset = Vector2( 236.23, 74 )
+custom_fonts/font = ExtResource( 3 )
 text = "Answer3"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -126,15 +209,62 @@ margin_top = 442.995
 margin_right = 904.105
 margin_bottom = 516.995
 rect_pivot_offset = Vector2( 236.23, 74 )
+custom_fonts/font = ExtResource( 3 )
 text = "Answer4"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Enemy" type="Sprite" parent="."]
-position = Vector2( 729.341, 182.424 )
-texture = ExtResource( 2 )
+[node name="Transition" type="CanvasLayer" parent="."]
+process_priority = 2
+layer = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
+anims/Battle_Transition = SubResource( 5 )
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.0588235, 0.054902, 0.054902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 515, 290 )
+
+[node name="ResolveText" type="Label" parent="."]
+visible = false
+margin_left = 187.827
+margin_top = 312.974
+margin_right = 802.827
+margin_bottom = 465.974
+custom_fonts/font = ExtResource( 3 )
+text = "Filler Text
+Next Line
+Next Line"
+percent_visible = 0.05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Scroll" type="AnimationPlayer" parent="ResolveText"]
+"anims/Scroll Text" = SubResource( 6 )
+
+[node name="ResolveButton" type="Button" parent="."]
+visible = false
+margin_left = 379.215
+margin_top = 466.482
+margin_right = 618.215
+margin_bottom = 545.482
+custom_fonts/font = ExtResource( 3 )
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Answer1" to="." method="_on_Answer1_pressed"]
 [connection signal="pressed" from="Answer2" to="." method="_on_Answer2_pressed"]
 [connection signal="pressed" from="Answer3" to="." method="_on_Answer3_pressed"]
 [connection signal="pressed" from="Answer4" to="." method="_on_Answer4_pressed"]
+[connection signal="animation_finished" from="ResolveText/Scroll" to="." method="_on_Scroll_animation_finished"]
+[connection signal="pressed" from="ResolveButton" to="." method="_on_ResolveButton_pressed"]

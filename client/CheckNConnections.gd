@@ -9,16 +9,31 @@ var check_timer = null
 var request_counter = 0
 var requests_complete_counter = 0
 
+var init_check_flag = false
+
 
 func _ready():
 	
+	
 	check_timer = Timer.new()
-	check_timer.autostart = true
 	check_timer.one_shot = false
 	check_timer.wait_time = 3
 	check_timer.connect("timeout", self, "_check_connection")
 	add_child(check_timer)
 	connect("request_completed", self, "on_request_result")
+
+func set_init_flag(flag):
+	if flag == 0:
+		init_check_flag = false
+		print("shutting down check connections") #debug
+		stop_check()
+	elif flag == 1:
+		init_check_flag = true
+		print("starting connection checking") #debug
+		start_check()
+	else:
+		pass
+	
 
 func stop_check():
 	if not check_timer.is_stopped():
@@ -31,11 +46,12 @@ func start_check():
 func _check_connection():
 	if request_counter == requests_complete_counter:
 		request_counter += 1
-		request("http://172.21.148.177:7000/blabla") # This address is only for test. You need to change your trusted and believing return success address...
+		Network_Services.get_connection_data(self,"on_request_result")
+		#request("https://coderquest-server.herokuapp.com/testing/") 
 	else:
 		push_error("Server response timed out!")
 		print("Server response timed out!")
-		# TODO : handle server time out
+		
 		emit_signal("connection_timed_out",0,"timed out")
 
 

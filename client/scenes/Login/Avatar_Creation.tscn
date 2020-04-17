@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://common_assets/Fonts/Login details.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/Login/Avatar_Creation.gd" type="Script" id=2]
+
+[node name="Avatar_Creation" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Male" type="Button" parent="."]
+margin_left = 378.041
+margin_top = 189.021
+margin_right = 646.041
+margin_bottom = 262.021
+custom_fonts/font = ExtResource( 1 )
+text = "Male"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Female" type="Button" parent="."]
+margin_left = 382.337
+margin_top = 310.738
+margin_right = 650.337
+margin_bottom = 383.738
+custom_fonts/font = ExtResource( 1 )
+text = "Female"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 258.0
+margin_top = 72.0
+margin_right = 805.0
+margin_bottom = 146.0
+custom_fonts/font = ExtResource( 1 )
+text = "Please Select a Gender for your Avatar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Male" to="." method="_on_Male_pressed"]
+[connection signal="pressed" from="Female" to="." method="_on_Female_pressed"]

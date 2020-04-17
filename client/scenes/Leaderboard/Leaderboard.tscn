@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://common_assets/Fonts/Login details.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/Leaderboard/Leaderboard.gd" type="Script" id=2]
+
+[node name="Leaderboard" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_top = 513.187
+margin_right = 1020.0
+margin_bottom = 577.187
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1020.0
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+margin_top = 4.0
+margin_right = 1020.0
+margin_bottom = 4.0
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1021.0
+margin_bottom = 74.0
+custom_fonts/font = ExtResource( 1 )
+text = "LEADERBOARD"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BoardLeft" type="ColorRect" parent="."]
+margin_left = 2.0
+margin_top = 77.0
+margin_right = 512.0
+margin_bottom = 515.0
+color = Color( 0.0901961, 0.0509804, 0.0509804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BoardLeft"]
+margin_top = -3.01465
+margin_right = 508.0
+margin_bottom = 435.985
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="VBoxContainer" parent="BoardLeft/ScrollContainer"]
+custom_constants/separation = 85
+
+[node name="BoardRight" type="ColorRect" parent="."]
+margin_left = 516.003
+margin_top = 77.0
+margin_right = 1026.0
+margin_bottom = 515.0
+color = Color( 0.0901961, 0.0509804, 0.0509804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BoardRight"]
+margin_top = -5.0
+margin_right = 508.0
+margin_bottom = 434.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="VBoxContainer" parent="BoardRight/ScrollContainer"]
+custom_constants/separation = 80
+
+[node name="Exit" type="Button" parent="."]
+margin_left = 820.507
+margin_top = 516.0
+margin_right = 1023.51
+margin_bottom = 574.0
+custom_fonts/font = ExtResource( 1 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]

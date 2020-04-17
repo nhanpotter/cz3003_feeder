@@ -42,16 +42,19 @@ func _on_emailinput_text_changed(new_text):
 
 #post request to server 
 func _on_SignupButton_pressed():
-	#post inputId, inputPw, inputEmail;
+	
 	if inputPw != confirmPw:
 		$pwError.popup_centered();
 	else:
 		#post request
-		
+		Network_Services.sign_up(self,"handle_signup",inputId,inputEmail,inputPw,confirmPw)
 		$signupSuccess.popup_centered()
 		
 	pass # Replace with function body.
 
+func handle_signup(result,response_code,headers,body):
+	var json = JSON.parse(body.get_string_from_utf8())
+	print(json.result)
 
 
 

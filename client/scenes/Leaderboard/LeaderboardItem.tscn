@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://common_assets/Fonts/Login details.tres" type="DynamicFont" id=1]
+
+[node name="LeaderboardItem" type="Panel"]
+margin_right = 504.0
+margin_bottom = 85.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 3.0
+margin_right = 502.0
+margin_bottom = 85.0
+custom_fonts/font = ExtResource( 1 )
+text = "Testing Text"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

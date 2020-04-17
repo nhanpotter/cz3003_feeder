@@ -1,16 +1,14 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Network_Services.gd" type="Script" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://Expedition_Manager.gd" type="Script" id=3]
 [ext_resource path="res://Expedition_Lobby_Manager.gd" type="Script" id=4]
-[ext_resource path="res://World_Map_Creator.gd" type="Script" id=5]
 [ext_resource path="res://Battle_Services.gd" type="Script" id=6]
 [ext_resource path="res://Scene_Manager.gd" type="Script" id=7]
 [ext_resource path="res://Battle_Manager.gd" type="Script" id=8]
-[ext_resource path="res://Expedition_Creator.gd" type="Script" id=9]
 [ext_resource path="res://Multiplayer_Manager.gd" type="Script" id=10]
-[ext_resource path="res://Custom_Game_Manager.gd" type="Script" id=11]
+[ext_resource path="res://World_Manager.gd" type="Script" id=11]
 [ext_resource path="res://Common_Services.gd" type="Script" id=12]
 [ext_resource path="res://Analytics_Services.gd" type="Script" id=13]
 [ext_resource path="res://CheckNConnections.gd" type="Script" id=14]
@@ -31,12 +29,6 @@ script = ExtResource( 12 )
 [node name="Scene_Manager" type="Node" parent="."]
 script = ExtResource( 7 )
 
-[node name="World_Map_Creator" type="Node" parent="."]
-script = ExtResource( 5 )
-
-[node name="Expedition_Creator" type="Node" parent="."]
-script = ExtResource( 9 )
-
 [node name="Battle_Services" type="Node" parent="."]
 script = ExtResource( 6 )
 
@@ -46,7 +38,7 @@ script = ExtResource( 13 )
 [node name="Multiplayer_Manager" type="Node" parent="."]
 script = ExtResource( 10 )
 
-[node name="Custom_Game_Manager" type="Node" parent="."]
+[node name="World_Manager" type="Node" parent="."]
 script = ExtResource( 11 )
 
 [node name="Expedition_Manager" type="Node" parent="."]

@@ -19,7 +19,7 @@ func get_next_question(QB,current):
 	var random_number = rng.randi_range(0,QB.size()-1)
 	while random_number == current:
 		random_number = rng.randi_range(0,QB.size()-1)
-	print(random_number)
+	print(random_number) #debug
 	return random_number
 
 func check_answer(question,selected):
@@ -28,15 +28,21 @@ func check_answer(question,selected):
 	else: 
 		return false
 
-func deal_damage(self_stats,enemy_stats,time_left):
-	print("dealing damage")
-	var damage_dealt = self_stats["Attack"] * (time_left/2)
-	var enemy_hp_left = enemy_stats["HP"] - damage_dealt
+func deal_damage(self_stats,enemy_stats,time_left,timer_value):
+	print("damage dealt : ") #debug
+	var damage_dealt = self_stats["attack"] * int((time_left/timer_value)*2)
+	if damage_dealt == 0:
+		damage_dealt = (self_stats["attack"]/2)
+	print(damage_dealt) #debug
+	var enemy_hp_left = enemy_stats["hp"] - damage_dealt
+	Common_Services.get_user_stats()
 	return enemy_hp_left
 
-func take_damage(self_stats,enemy_stats,time_left):
-	print("taking damage")
-	var damage_dealt = enemy_stats["Attack"] * (5-time_left)
-	var self_hp_left = self_stats["HP"] - damage_dealt
+func take_damage(self_stats,enemy_stats,time_left,timer_value):
+	print("taking damage : ") #debug
+	var damage_dealt = enemy_stats["attack"] * int((timer_value-time_left)/2)
+	print(damage_dealt) #debug
+	var self_hp_left = self_stats["hp"] - damage_dealt
+	Common_Services.get_user_stats()
 	return self_hp_left
 

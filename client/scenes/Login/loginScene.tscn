@@ -114,8 +114,11 @@ margin_left = 639.0
 margin_top = 13.0
 margin_right = 639.0
 margin_bottom = 27.0
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
 [connection signal="text_changed" from="CenterContainer/HBoxContainer/idpwdetails/inputid" to="." method="_on_inputid_text_changed"]
 [connection signal="text_changed" from="CenterContainer/HBoxContainer/idpwdetails/inputpw" to="." method="_on_inputpw_text_changed"]
 [connection signal="pressed" from="CenterContainer/HBoxContainer/idpwdetails/Login" to="." method="_on_Login_pressed"]
 [connection signal="pressed" from="Login2" to="." method="_on_Login2_pressed"]
 [connection signal="pressed" from="Signup" to="." method="_on_Signup_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

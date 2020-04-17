@@ -17,11 +17,17 @@ _global_script_classes=[ {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
-"path": "res://expedition_assets/Player.gd"
+"path": "res://scenes/World/Player.gd"
+}, {
+"base": "Node2D",
+"class": "npc",
+"language": "GDScript",
+"path": "res://scenes/World/npc.gd"
 } ]
 _global_script_class_icons={
 "Joystick": "",
-"Player": ""
+"Player": "",
+"npc": ""
 }
 
 [application]
@@ -40,11 +46,12 @@ Expedition_Creator="*res://Expedition_Creator.gd"
 Expedition_Lobby_Manager="*res://Expedition_Lobby_Manager.gd"
 Expedition_Manager="*res://Expedition_Manager.gd"
 Network_Services="*res://Network_Services.gd"
-WorldMap_Creator="*res://World_Map_Creator.gd"
 CheckNConnections="*res://CheckNConnections.gd"
 Login_Manager="*res://Login_Manager.gd"
 LevelMapMenu_Manager="*res://LevelMapMenu_Manager.gd"
 LevelMap_Manager="*res://LevelMap_Manager.gd"
+World_Manager="*res://World_Manager.gd"
+Analytics_Services="*res://Analytics_Services.gd"
 
 [display]
 

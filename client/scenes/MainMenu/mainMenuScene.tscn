@@ -20,11 +20,11 @@ margin_right = 1280.0
 margin_bottom = 49.0
 
 [node name="GameName" type="Label" parent="GameName/CenterContainer"]
-margin_left = 559.0
-margin_right = 720.0
+margin_left = 560.0
+margin_right = 719.0
 margin_bottom = 49.0
 custom_fonts/font = ExtResource( 1 )
-text = "Game Name"
+text = "Coder Quest"
 
 [node name="Character" type="HBoxContainer" parent="."]
 anchor_bottom = 100.0
@@ -217,7 +217,7 @@ margin_right = 200.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 200, 80 )
 custom_fonts/font = ExtResource( 2 )
-text = "Shop"
+text = "Leaderboard"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -239,7 +239,7 @@ margin_right = 200.0
 margin_bottom = 248.0
 rect_min_size = Vector2( 200, 80 )
 custom_fonts/font = ExtResource( 2 )
-text = "Fight Test"
+text = "FightTest"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -269,7 +269,7 @@ __meta__ = {
 [connection signal="pressed" from="Menu1/HBoxContainer/Custom" to="." method="_on_Custom_pressed"]
 [connection signal="pressed" from="Menu1/HBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="Menu1/HBoxContainer/Logout" to="." method="_on_Logout_pressed"]
-[connection signal="pressed" from="Menu2/VBoxContainer/Shop" to="." method="_on_Shop_pressed"]
+[connection signal="pressed" from="Menu2/VBoxContainer/Shop" to="." method="_on_Leaderboard_pressed"]
 [connection signal="pressed" from="Menu2/VBoxContainer/Question" to="." method="_on_Question_pressed"]
 [connection signal="pressed" from="Menu2/VBoxContainer/FightTest" to="." method="_on_FightTest_pressed"]
 [connection signal="pressed" from="Menu2/VBoxContainer/MapTest" to="." method="_on_MapTest_pressed"]

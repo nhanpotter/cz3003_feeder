@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://common_assets/Fonts/Login details.tres" type="DynamicFont" id=1]
 [ext_resource path="res://scenes/Login/Avatar_Creation.gd" type="Script" id=2]
+[ext_resource path="res://common_assets/Login/world select.png" type="Texture" id=3]
 
 [node name="Avatar_Creation" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1260.0
+margin_bottom = 730.0
+rect_scale = Vector2( 0.813262, 0.787023 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Male" type="Button" parent="."]
 margin_left = 378.041

@@ -33,8 +33,7 @@ func _ready():
 
 	
 	pass
-	
-	
+
 func get_children_position():
 	for node in get_children():
 		if node.get_class() == "npc":
@@ -103,9 +102,11 @@ func create_world_map(background_type):
 		print("not a valid background type!")#debug
 
 func create_npc(npc_data):
-
+	print("this is npc data", npc_data)
+	var sprite = Common_Services.get_enemy_sprite(npc_data.npc_avatar.npc_type)
 	npc_instance = npc.instance()
 	npc_instance.stats = npc_data
+	npc_instance.get_child(0).set_texture(sprite)
 	add_child(npc_instance)
 	npc_list_in_world.append(npc_instance)
 	

@@ -1,9 +1,32 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://common_assets/Login/coollogo_com-5541784.png" type="Texture" id=1]
 [ext_resource path="res://common_assets/Fonts/mainmenu.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/MainMenu/mainMenuScipt.gd" type="Script" id=3]
 [ext_resource path="res://common_assets/Login/mainBG.png" type="Texture" id=4]
+[ext_resource path="res://common_assets/Mainmenu/expedition icon.png" type="Texture" id=5]
+[ext_resource path="res://common_assets/Mainmenu/settings icon.png" type="Texture" id=6]
+[ext_resource path="res://common_assets/Mainmenu/logout icon.png" type="Texture" id=7]
+[ext_resource path="res://common_assets/Mainmenu/custom icon.png" type="Texture" id=8]
+[ext_resource path="res://common_assets/Mainmenu/leaderboard icon.png" type="Texture" id=9]
+[ext_resource path="res://common_assets/Mainmenu/clan icon.png" type="Texture" id=10]
+[ext_resource path="res://common_assets/Mainmenu/question icon.png" type="Texture" id=11]
+[ext_resource path="res://common_assets/Login/mainmenubutton.tres" type="StyleBox" id=12]
+[ext_resource path="res://common_assets/Login/mainmenupressed.tres" type="StyleBox" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
 
 [node name="MainMenu" type="Node2D"]
 scale = Vector2( 0.799728, 0.798897 )
@@ -174,46 +197,93 @@ margin_right = 1280.0
 margin_bottom = 80.0
 
 [node name="Expedition" type="Button" parent="Menu1/HBoxContainer"]
-margin_right = 210.0
+margin_right = 170.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 210, 80 )
+rect_min_size = Vector2( 170, 80 )
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = SubResource( 1 )
+custom_styles/disabled = SubResource( 1 )
+custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 text = "Expedition"
+icon = ExtResource( 5 )
+align = 0
 
 [node name="Clan" type="Button" parent="Menu1/HBoxContainer"]
-margin_left = 214.0
-margin_right = 424.0
+margin_left = 174.0
+margin_right = 304.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 210, 80 )
+rect_min_size = Vector2( 130, 80 )
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 text = "Clan"
+icon = ExtResource( 10 )
+align = 0
 
 [node name="Custom" type="Button" parent="Menu1/HBoxContainer"]
-margin_left = 428.0
-margin_right = 638.0
+margin_left = 308.0
+margin_right = 458.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 210, 80 )
+rect_min_size = Vector2( 150, 80 )
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 3 )
+custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+disabled = true
 text = "Custom"
+icon = ExtResource( 8 )
+align = 0
 
 [node name="Settings" type="Button" parent="Menu1/HBoxContainer"]
-margin_left = 642.0
-margin_right = 852.0
+margin_left = 462.0
+margin_right = 617.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 210, 80 )
+rect_min_size = Vector2( 155, 80 )
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 4 )
+custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+disabled = true
 text = "Settings"
+icon = ExtResource( 6 )
+align = 0
 
 [node name="Logout" type="Button" parent="Menu1/HBoxContainer"]
-margin_left = 856.0
-margin_right = 1066.0
+margin_left = 621.0
+margin_right = 831.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 210, 80 )
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 text = "Logout"
+icon = ExtResource( 7 )
+align = 0
 
 [node name="Menu2" type="HBoxContainer" parent="."]
-margin_left = 1080.0
+margin_left = 1060.0
 margin_top = 150.0
 margin_right = 1280.0
 margin_bottom = 640.0
@@ -222,48 +292,46 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu2"]
-margin_right = 200.0
+margin_right = 220.0
 margin_bottom = 490.0
+rect_min_size = Vector2( 220, 0 )
 
 [node name="Shop" type="Button" parent="Menu2/VBoxContainer"]
-margin_right = 200.0
+margin_right = 220.0
 margin_bottom = 80.0
-rect_min_size = Vector2( 200, 80 )
+rect_min_size = Vector2( 210, 80 )
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 text = "Leaderboard"
+icon = ExtResource( 9 )
+align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Question" type="Button" parent="Menu2/VBoxContainer"]
 margin_top = 84.0
-margin_right = 200.0
+margin_right = 220.0
 margin_bottom = 164.0
 rect_min_size = Vector2( 200, 80 )
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = ExtResource( 12 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+disabled = true
 text = "Question"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FightTest" type="Button" parent="Menu2/VBoxContainer"]
-margin_top = 168.0
-margin_right = 200.0
-margin_bottom = 248.0
-rect_min_size = Vector2( 200, 80 )
-custom_fonts/font = ExtResource( 2 )
-text = "FightTest"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MapTest" type="Button" parent="Menu2/VBoxContainer"]
-margin_top = 252.0
-margin_right = 200.0
-margin_bottom = 332.0
-rect_min_size = Vector2( 200, 80 )
-custom_fonts/font = ExtResource( 2 )
-text = "MapTest"
+icon = ExtResource( 11 )
+align = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -284,7 +352,5 @@ __meta__ = {
 [connection signal="pressed" from="Menu1/HBoxContainer/Logout" to="." method="_on_Logout_pressed"]
 [connection signal="pressed" from="Menu2/VBoxContainer/Shop" to="." method="_on_Leaderboard_pressed"]
 [connection signal="pressed" from="Menu2/VBoxContainer/Question" to="." method="_on_Question_pressed"]
-[connection signal="pressed" from="Menu2/VBoxContainer/FightTest" to="." method="_on_FightTest_pressed"]
-[connection signal="pressed" from="Menu2/VBoxContainer/MapTest" to="." method="_on_MapTest_pressed"]
 [connection signal="confirmed" from="logoutConfirm" to="." method="_on_logoutConfirm_confirmed"]
 [connection signal="custom_action" from="logoutConfirm" to="." method="_on_logoutConfirm_custom_action"]

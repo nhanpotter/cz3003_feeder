@@ -83,3 +83,10 @@ func _on_signupSuccess_confirmed():
 	var params = {}
 	Scene_Manager.goto_scene(scenepath, params)
 	pass # Replace with function body.
+
+
+func _on_Back_pressed():
+	var scenepath = Scene_Manager.get_scene_path("login")
+	var params = {}
+	Scene_Manager.goto_scene(scenepath, params)
+	pass # Replace with function body.

@@ -49,7 +49,7 @@ func _prep_stage(stages):
 
 	var template = container.get_node("ColorRect")
 	container.remove_child(template)
-	var scale = Vector2(0.855,0.700)
+	var scale = Vector2(0.855,0.800)
 	map.set_scale(scale)
 	container.add_child(map)
 

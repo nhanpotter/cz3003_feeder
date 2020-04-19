@@ -5,9 +5,9 @@
 [ext_resource path="res://scenes/Expedition/ExpeditionMaps/Map_5_stage.gd" type="Script" id=3]
 
 [node name="TextureRect" type="TextureRect"]
-margin_right = 1032.0
-margin_bottom = 500.0
-rect_scale = Vector2( 0.865, 0.865 )
+margin_right = 1198.0
+margin_bottom = 720.0
+rect_scale = Vector2( 0.853669, 0.800274 )
 texture = ExtResource( 1 )
 script = ExtResource( 3 )
 __meta__ = {

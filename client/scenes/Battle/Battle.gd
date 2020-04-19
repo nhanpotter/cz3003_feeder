@@ -91,7 +91,7 @@ func _set_enemy_sprite(id):
 	var sprite = Common_Services.get_enemy_sprite(id)
 	var size = Vector2(720,1080)
 	enemy_sprite.set_texture(sprite)
-	var position = Vector2(700,175)
+	var position = Vector2(700,275)
 	var scale = Vector2(0.5,0.5)
 	enemy_sprite.set_position(position)
 	enemy_sprite.set_scale(scale)
@@ -101,11 +101,12 @@ func _set_self_sprite(player_gender,player_level):
 	var sprite = Common_Services.get_sprite(Common_Services.get_spriteId(player_level,player_gender))
 	var size = Vector2(720,1080)
 	player_sprite.set_texture(sprite)
-	var position = Vector2(275,175)
+	var position = Vector2(275,275)
 	var scale = Vector2(0.5,0.5)
 	player_sprite.set_position(position)
 	player_sprite.set_scale(scale)
 	player_sprite.set_z_index(0)
+
 
 func set_next_question(qn):
 	question.set_text(qn["question"])
@@ -153,6 +154,7 @@ func _handle_answer_press(selection):
 	else:
 		var next = Battle_Services.get_next_question(q_bank,current_question)
 		current_question = next
+		add_child(question)
 		set_next_question(q_bank[current_question])
 
 

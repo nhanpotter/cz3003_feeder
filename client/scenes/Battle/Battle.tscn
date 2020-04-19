@@ -63,27 +63,27 @@ bg_color = Color( 0.482353, 0.0666667, 0.596078, 1 )
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 200, 80 )
 
-[sub_resource type="StyleBoxTexture" id=10]
+[sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 200, 80 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 200, 80 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 14 )
+region_rect = Rect2( 0, 0, 200, 80 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 14 )
 region_rect = Rect2( 0, 0, 200, 80 )
 
 [sub_resource type="StyleBoxTexture" id=11]
 texture = ExtResource( 14 )
 region_rect = Rect2( 0, 0, 200, 80 )
 
-[sub_resource type="StyleBoxTexture" id=12]
-texture = ExtResource( 14 )
-region_rect = Rect2( 0, 0, 200, 80 )
-
-[sub_resource type="StyleBoxTexture" id=13]
-texture = ExtResource( 14 )
-region_rect = Rect2( 0, 0, 200, 80 )
-
-[sub_resource type="StyleBoxTexture" id=14]
-texture = ExtResource( 14 )
-region_rect = Rect2( 0, 0, 200, 80 )
-
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:rect_size")
 tracks/0/interp = 1
@@ -97,11 +97,11 @@ tracks/0/keys = {
 "values": [ Vector2( 1024, 600 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="StyleBoxTexture" id=8]
+[sub_resource type="StyleBoxTexture" id=13]
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 200, 80 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=14]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:percent_visible")
@@ -152,9 +152,9 @@ flip_h = true
 anims/Fade = SubResource( 3 )
 
 [node name="Self_HP" type="ProgressBar" parent="."]
-margin_left = 100.0
+margin_left = 27.0
 margin_top = 422.0
-margin_right = 462.335
+margin_right = 389.335
 margin_bottom = 471.0
 custom_styles/fg = SubResource( 4 )
 custom_fonts/font = ExtResource( 3 )
@@ -166,9 +166,9 @@ __meta__ = {
 }
 
 [node name="Enemy_HP" type="ProgressBar" parent="."]
-margin_left = 545.0
+margin_left = 611.0
 margin_top = 422.0
-margin_right = 907.335
+margin_right = 973.335
 margin_bottom = 471.0
 custom_styles/fg = SubResource( 5 )
 custom_fonts/font = ExtResource( 3 )
@@ -198,7 +198,7 @@ margin_left = 468.0
 margin_top = 191.0
 margin_right = 537.0
 margin_bottom = 255.0
-custom_styles/normal = SubResource( 10 )
+custom_styles/normal = SubResource( 7 )
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.027451, 0.156863, 0.403922, 1 )
 text = "TIME"
@@ -210,16 +210,16 @@ __meta__ = {
 }
 
 [node name="Answer1" type="Button" parent="."]
-margin_left = 103.0
+margin_left = 27.0
 margin_top = 477.0
-margin_right = 190.784
+margin_right = 497.0
 margin_bottom = 514.0
 rect_pivot_offset = Vector2( 236.23, 74 )
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 11 )
-custom_styles/focus = SubResource( 11 )
-custom_styles/disabled = SubResource( 11 )
-custom_styles/normal = SubResource( 11 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 8 )
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -230,16 +230,16 @@ __meta__ = {
 }
 
 [node name="Answer2" type="Button" parent="."]
-margin_left = 548.0
+margin_left = 501.0
 margin_top = 477.0
-margin_right = 636.0
+margin_right = 971.0
 margin_bottom = 514.0
 rect_pivot_offset = Vector2( 236.23, 74 )
-custom_styles/hover = SubResource( 12 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/focus = SubResource( 12 )
-custom_styles/disabled = SubResource( 12 )
-custom_styles/normal = SubResource( 12 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 9 )
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -250,16 +250,16 @@ __meta__ = {
 }
 
 [node name="Answer3" type="Button" parent="."]
-margin_left = 103.0
+margin_left = 27.0
 margin_top = 520.0
-margin_right = 191.0
+margin_right = 497.0
 margin_bottom = 557.0
 rect_pivot_offset = Vector2( 236.23, 74 )
-custom_styles/hover = SubResource( 13 )
-custom_styles/pressed = SubResource( 13 )
-custom_styles/focus = SubResource( 13 )
-custom_styles/disabled = SubResource( 13 )
-custom_styles/normal = SubResource( 13 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 10 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 10 )
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -270,16 +270,16 @@ __meta__ = {
 }
 
 [node name="Answer4" type="Button" parent="."]
-margin_left = 548.0
+margin_left = 501.0
 margin_top = 520.0
-margin_right = 637.0
+margin_right = 971.0
 margin_bottom = 557.0
 rect_pivot_offset = Vector2( 236.23, 74 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 14 )
-custom_styles/focus = SubResource( 14 )
-custom_styles/disabled = SubResource( 14 )
-custom_styles/normal = SubResource( 14 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 11 )
+custom_styles/normal = SubResource( 11 )
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -294,7 +294,7 @@ process_priority = 2
 layer = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Transition"]
-anims/Battle_Transition = SubResource( 7 )
+anims/Battle_Transition = SubResource( 12 )
 
 [node name="ColorRect" type="ColorRect" parent="Transition"]
 visible = false
@@ -314,7 +314,7 @@ margin_left = 188.0
 margin_top = 313.0
 margin_right = 836.0
 margin_bottom = 478.0
-custom_styles/normal = SubResource( 8 )
+custom_styles/normal = SubResource( 13 )
 custom_fonts/font = ExtResource( 3 )
 text = "Filler Text
 Next Line
@@ -326,7 +326,7 @@ __meta__ = {
 }
 
 [node name="Scroll" type="AnimationPlayer" parent="ResolveText"]
-"anims/Scroll Text" = SubResource( 9 )
+"anims/Scroll Text" = SubResource( 14 )
 
 [node name="ResolveButton" type="Button" parent="."]
 visible = false

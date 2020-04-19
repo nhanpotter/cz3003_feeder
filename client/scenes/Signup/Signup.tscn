@@ -127,6 +127,7 @@ custom_styles/normal = ExtResource( 6 )
 custom_fonts/font = ExtResource( 1 )
 align = 1
 max_length = 50
+secret = true
 
 [node name="confirmPassword" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer2"]
 margin_top = 108.0
@@ -137,6 +138,7 @@ custom_styles/normal = ExtResource( 6 )
 custom_fonts/font = ExtResource( 1 )
 align = 1
 max_length = 50
+secret = true
 
 [node name="emailinput" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer2"]
 margin_top = 162.0

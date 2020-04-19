@@ -76,6 +76,7 @@ rect_min_size = Vector2( 200, 80 )
 custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
 max_length = 20
 
 [node name="inputpw" type="LineEdit" parent="CenterContainer/HBoxContainer/idpwdetails"]
@@ -86,6 +87,7 @@ rect_min_size = Vector2( 200, 80 )
 custom_styles/normal = ExtResource( 3 )
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
+align = 1
 max_length = 20
 secret = true
 

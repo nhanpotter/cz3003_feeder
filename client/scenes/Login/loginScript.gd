@@ -43,7 +43,7 @@ func handle_login(result, response_code, headers, body):
 		layer.set_layer(2)
 		
 		var diag = AcceptDialog.new()
-		diag.get_label().text = "Unsuccessful Login! Please try again!"
+		diag.get_label().text = "Unsuccessful Login! If you haven't activated your account, please check your email for activation link"
 		diag.connect("confirmed",self,"_clean_dialog")
 		layer.add_child(diag)
 		self.add_child(layer)

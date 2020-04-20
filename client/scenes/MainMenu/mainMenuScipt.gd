@@ -36,8 +36,17 @@ func init(params):
 		charGender = "M"
 	else:
 		charGender = "F"
-
 	init_flag = true
+
+func check_new_stats():
+	user_stats = Common_Services.get_user_stats()
+	charLevel = user_stats["level"]
+	charExp = user_stats["experience"]
+	charGold = user_stats["gold"]
+	charHp = user_stats["hp"]
+	charAtt = user_stats["attack"]
+	_set_player_stats()
+
 
 func _set_sprite():
 	var spriteid = Common_Services.get_spriteId(charLevel,charGender)
@@ -55,8 +64,10 @@ func _set_player_stats():
 		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	yield(get_tree().create_timer(2.0), "timeout")
+	check_new_stats()
+
 
 
 func _on_Clan_pressed():

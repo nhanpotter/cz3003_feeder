@@ -113,6 +113,7 @@ func _on_Ok_pressed():
 	complete.visible = false
 
 func _confirm_exit():
-	#Expedition_Lobby_Manager.expedition_list = [] #clear cache
+	
+	Common_Services.get_avatar_info()
 	var path = Scene_Manager.get_scene_path("mainmenu")
 	Scene_Manager.goto_scene(path,0)

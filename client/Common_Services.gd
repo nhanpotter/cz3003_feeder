@@ -43,7 +43,15 @@ func set_user_stats(stats):
 	user_stats = stats
 
 func get_user_stats():
-	print("getting user stats :") #debug
-	print(user_stats) #debug
+
 	return user_stats
+
+func get_avatar_info():
+	Network_Services.get_avatar(self,"on_avatar_receive")
+
+func on_avatar_receive(result,response_code,headers,body):
+	print("testing") #debug
+	var json = JSON.parse(body.get_string_from_utf8())
+	var temp_stats = json.result
+	Common_Services.set_user_stats(temp_stats)
 	

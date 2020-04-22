@@ -38,6 +38,7 @@ func deal_damage(self_stats,enemy_stats,time_left,timer_value):
 		damage_dealt = (self_stats["attack"]/2)
 	print(damage_dealt) #debug
 	var enemy_hp_left = enemy_stats["hp"] - damage_dealt
+	print(enemy_hp_left) #debug
 	Common_Services.get_user_stats()
 	return enemy_hp_left
 

@@ -1,6 +1,8 @@
 extends Control
 
 class_name Joystick
+onready var sprite = get_parent().get_parent().get_node("Sprite")
+var sprite_counter = 0
 
 # If the joystick is receiving inputs.
 var is_working := false
@@ -76,15 +78,87 @@ func _set_handle_center_position(new_position : Vector2) -> void:
 	_handle.rect_position = new_position - _handle.rect_size / 2
 
 func _update_output(vector: Vector2) -> void:
+	
 	var dead_size = dead_zone * _background.rect_size.x / 2
 	var clamp_size = clamp_zone * _background.rect_size.x / 2
 	vector = vector.clamped(clamp_size)
 	if directions > 0:
 		vector = _directional_vector(vector, directions, deg2rad(simmetry_angle))
 	output = vector.normalized()
+	_change_sprite_face(output)
+
 	if vector_mode == Vector_mode.REAL and vector.length() < clamp_size:
 		output *= (vector.length() - dead_size) / (clamp_size - dead_size)
 	_set_handle_center_position(output * clamp_size + _background.rect_size / 2)
+
+func _change_sprite_face(output):
+	if (output.y <=0 && output.x>-0.5 && output.x<=0.5):
+		#face up
+		if sprite_counter < 4:
+			sprite.frame = 12
+			sprite_counter += 1
+		elif sprite_counter < 8 :
+			sprite.frame = 13
+			sprite_counter += 1
+		elif sprite_counter < 12:
+			sprite.frame = 14
+			sprite_counter +=1
+		elif sprite_counter < 16:
+			sprite.frame = 15
+			sprite_counter +=1
+		elif sprite_counter == 16:
+			sprite_counter = 0
+	elif (output.x>0 && output.y>-0.5 && output.y<=0.5):
+		#face right
+		if sprite_counter < 4:
+			sprite.frame = 8
+			sprite_counter += 1
+		elif sprite_counter < 8 :
+			sprite.frame = 9
+			sprite_counter += 1
+		elif sprite_counter < 12:
+			sprite.frame = 10
+			sprite_counter +=1
+		elif sprite_counter < 16:
+			sprite.frame = 11
+			sprite_counter +=1
+		elif sprite_counter == 16:
+			sprite_counter = 0
+	elif (output.x<=0 && output.y>-0.5 && output.y<=0.5):
+		#face left
+		if sprite_counter < 4:
+			sprite.frame = 4
+			sprite_counter += 1
+		elif sprite_counter < 8 :
+			sprite.frame = 5
+			sprite_counter += 1
+		elif sprite_counter < 12:
+			sprite.frame = 6
+			sprite_counter +=1
+		elif sprite_counter < 16:
+			sprite.frame = 7
+			sprite_counter +=1
+		elif sprite_counter == 16:
+			sprite_counter = 0
+	elif (output.y >0 && output.x>-0.5 && output.x<=0.5):
+		#face down
+		if sprite_counter < 4:
+			sprite.frame = 0
+			sprite_counter += 1
+		elif sprite_counter < 8 :
+			sprite.frame = 1
+			sprite_counter += 1
+		elif sprite_counter < 12:
+			sprite.frame = 2
+			sprite_counter +=1
+		elif sprite_counter < 16:
+			sprite.frame = 3
+			sprite_counter +=1
+		elif sprite_counter == 16:
+			sprite_counter = 0
+			
+	else:
+		pass
 
 func _following(vector: Vector2) -> void:
 	var clamp_size = clamp_zone * _background.rect_size.x / 2

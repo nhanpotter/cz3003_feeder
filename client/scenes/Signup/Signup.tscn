@@ -1,16 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://common_assets/Fonts/signup.tres" type="DynamicFont" id=1]
 [ext_resource path="res://common_assets/Fonts/newsignup.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/Signup/SignupScript.gd" type="Script" id=3]
+[ext_resource path="res://common_assets/Login/coollogo_com-5541784.png" type="Texture" id=4]
+[ext_resource path="res://common_assets/Login/signupBG.jpg" type="Texture" id=5]
+[ext_resource path="res://common_assets/Login/translucent.tres" type="StyleBox" id=6]
+[ext_resource path="res://common_assets/Login/loginbutton.tres" type="StyleBox" id=7]
 
 [node name="Signup" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="BG" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+rect_scale = Vector2( 0.533408, 0.533772 )
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="newsignup" type="Label" parent="."]
+margin_top = 119.0
 margin_right = 1024.0
 margin_bottom = 576.0
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "New Signup"
 align = 1
 __meta__ = {
@@ -42,6 +58,9 @@ margin_right = 150.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 150, 50 )
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
 text = "Login ID:"
 align = 2
 valign = 1
@@ -52,6 +71,9 @@ margin_right = 150.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 150, 50 )
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
 text = "Password:"
 align = 2
 valign = 1
@@ -62,6 +84,9 @@ margin_right = 150.0
 margin_bottom = 158.0
 rect_min_size = Vector2( 150, 50 )
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
 text = "Confirm Password:"
 align = 2
 valign = 1
@@ -72,6 +97,9 @@ margin_right = 150.0
 margin_bottom = 212.0
 rect_min_size = Vector2( 150, 50 )
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
 text = "Email:"
 align = 2
 valign = 1
@@ -85,7 +113,9 @@ margin_bottom = 212.0
 margin_right = 150.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 150, 50 )
+custom_styles/normal = ExtResource( 6 )
 custom_fonts/font = ExtResource( 1 )
+align = 1
 max_length = 50
 
 [node name="pwinput" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer2"]
@@ -93,38 +123,69 @@ margin_top = 54.0
 margin_right = 150.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 150, 50 )
+custom_styles/normal = ExtResource( 6 )
 custom_fonts/font = ExtResource( 1 )
+align = 1
 max_length = 50
+secret = true
 
 [node name="confirmPassword" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer2"]
 margin_top = 108.0
 margin_right = 150.0
 margin_bottom = 158.0
 rect_min_size = Vector2( 150, 50 )
+custom_styles/normal = ExtResource( 6 )
 custom_fonts/font = ExtResource( 1 )
+align = 1
 max_length = 50
+secret = true
 
 [node name="emailinput" type="LineEdit" parent="CenterContainer/HBoxContainer/VBoxContainer2"]
 margin_top = 162.0
 margin_right = 150.0
 margin_bottom = 212.0
 rect_min_size = Vector2( 150, 50 )
+custom_styles/normal = ExtResource( 6 )
 custom_fonts/font = ExtResource( 1 )
+align = 1
 max_length = 50
 
 [node name="SignupButton" type="Button" parent="."]
-margin_left = 821.531
-margin_top = 478.236
-margin_right = 979.531
-margin_bottom = 533.236
+margin_left = 45.242
+margin_top = 490.0
+margin_right = 203.242
+margin_bottom = 545.0
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 7 )
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
 text = "Confirm Signup"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Back" type="Button" parent="."]
+margin_left = 826.77
+margin_top = 490.0
+margin_right = 984.77
+margin_bottom = 545.0
+rect_min_size = Vector2( 158, 55 )
+custom_styles/hover = ExtResource( 7 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 7 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 7 )
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="pwError" type="AcceptDialog" parent="."]
-visible = true
 margin_left = 4.20193
 margin_top = 16.7
 margin_right = 267.202
@@ -134,20 +195,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="signupSuccess" type="AcceptDialog" parent="."]
+[node name="signError" type="AcceptDialog" parent="."]
 visible = true
 margin_left = 4.20193
 margin_top = 16.7
 margin_right = 267.202
 margin_bottom = 105.7
-dialog_text = "Signup successful!"
+dialog_text = "Field Cannot be Empty!"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
+[node name="signupSuccess" type="AcceptDialog" parent="."]
+margin_left = 4.20193
+margin_top = 16.7
+margin_right = 267.202
+margin_bottom = 105.7
+dialog_text = "Signup successful! Please check your email for activation link!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 133.0
+texture = ExtResource( 4 )
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -156,4 +229,5 @@ __meta__ = {
 [connection signal="text_changed" from="CenterContainer/HBoxContainer/VBoxContainer2/confirmPassword" to="." method="_on_confirmPassword_text_changed"]
 [connection signal="text_changed" from="CenterContainer/HBoxContainer/VBoxContainer2/emailinput" to="." method="_on_emailinput_text_changed"]
 [connection signal="pressed" from="SignupButton" to="." method="_on_SignupButton_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 [connection signal="confirmed" from="signupSuccess" to="." method="_on_signupSuccess_confirmed"]

@@ -12,6 +12,14 @@ var scenes = {"login":"res://scenes/Login/loginScene.tscn",
 				"levelMap" : "res://scenes/MapScene/mapScene.tscn",
 				"world" : "res://scenes/World/World.tscn",
 				"clan" : "res://scenes/Clan/clanScene.tscn",
+				"MODULE A" : "res://scenes/MapScene/MODULE A.tscn",
+				"test" : "res://test.tscn",
+				"test2" :  "res://test2.tscn",
+				"lobby" : "res://scenes/ExpeditionLobby/Lobby.tscn",
+				"expedition": "res://scenes/Expedition/Expedition.tscn",
+				"avatar" : "res://scenes/Login/Avatar_Creation.tscn",
+				"leaderboard" : "res://scenes/Leaderboard/Leaderboard.tscn"
+				
 				}
 
 var previous_scene = null

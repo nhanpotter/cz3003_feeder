@@ -3,35 +3,71 @@ var x
 
 #variables to initialise according to userID
 #char stats to be initialised
-var charLevel = 2
-var charExp = 9
-var charGold = 55
+var user_stats = {}
+var charLevel = 0
+var charExp = 0
+var charGold = 0
 var charHp = 100
 var charAtt = 8
 var charGender = "M"
 
+var init_flag = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	while init_flag == false:
+		pass
+	_set_sprite()
+	_set_player_stats()
+	
+
+	pass # Replace with function body.
+	
+func init(params):
+	print("main menu initializing...")#debug
+	
+	user_stats = Common_Services.get_user_stats()
+	charLevel = user_stats["level"]
+	charExp = user_stats["experience"]
+	charGold = user_stats["gold"]
+	charHp = user_stats["hp"]
+	charAtt = user_stats["attack"]
+	if user_stats["gender"] == 1:
+		charGender = "M"
+	else:
+		charGender = "F"
+	init_flag = true
+
+func check_new_stats():
+	user_stats = Common_Services.get_user_stats()
+	charLevel = user_stats["level"]
+	charExp = user_stats["experience"]
+	charGold = user_stats["gold"]
+	charHp = user_stats["hp"]
+	charAtt = user_stats["attack"]
+	_set_player_stats()
+
+
+func _set_sprite():
 	var spriteid = Common_Services.get_spriteId(charLevel,charGender)
 	#set display texture box according to user account info
 	var sprite = Common_Services.get_sprite(spriteid)
 	$Character/charDisplay.set_texture(sprite)
-	
-	
+
+func _set_player_stats():
 	$CharStatsInfo1/LevelValue.set_text(str(charLevel)) 
 	$CharStatsInfo1/ExpValue.set_text(str(charExp))
 	$CharStatsInfo1/GoldValue.set_text(str(charGold))
 	$CharStatsInfo2/HpValue.set_text(str(charHp))
 	$CharStatsInfo2/AttValue.set_text(str(charAtt))
-	pass # Replace with function body.
-	
-func init(params):
-	pass
 
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	yield(get_tree().create_timer(2.0), "timeout")
+	check_new_stats()
+
 
 
 func _on_Clan_pressed():
@@ -43,26 +79,32 @@ func _on_Clan_pressed():
 
 func _on_Logout_pressed():
 	$logoutConfirm.popup_centered()
-	#x = get_tree().change_scene("res://Scenes/loginScene/loginScene.tscn")
+	
 	pass # Replace with function body.
 
+func handle_logout(result,response_code,headers,body):
+	print("logout successful")
+	
+	var path = Scene_Manager.get_scene_path("login")
+	var params = {}
+	Scene_Manager.goto_scene(path,params)
 
 func _on_FightTest_pressed():
-	x = get_tree().change_scene("res://Scenes/fightTestScene/Battle.tscn")
 	pass # Replace with function body.
 
 
 func _on_Expedition_pressed():
-	var path = Scene_Manager.get_scene_path("levelMap")
-	var textList = LevelMapMenu_Manager.getTextList("some userdata")
-	Scene_Manager.goto_scene(path, textList)
+	var path = Scene_Manager.get_scene_path("lobby")
+	var params = Expedition_Lobby_Manager.get_expeditions()
+	Scene_Manager.goto_scene(path, params)
 	pass # Replace with function body.
 
 
 
 
 func _on_Custom_pressed():
-	x = get_tree().change_scene("res://Scenes/customScene/customScene.tscn")
+	var path = Scene_Manager.get_scene_path("test")
+	Scene_Manager.goto_scene(path,0)
 	pass # Replace with function body.
 
 
@@ -71,23 +113,32 @@ func _on_Settings_pressed():
 	pass # Replace with function body.
 
 
-func _on_Shop_pressed():
-	x = get_tree().change_scene("res://Scenes/shopScene/shopScene.tscn")
+func _on_Leaderboard_pressed():
+	Network_Services.get_leaderboard(self,"on_receive_leaderboard")
+
 	pass # Replace with function body.
+
+func on_receive_leaderboard(result,response_code,headers,body):
+	var json = JSON.parse(body.get_string_from_utf8())
+	print("leaderboard entries are...") #debug
+	print(json.result) #debug
+	var params = json.result
+	var path = Scene_Manager.get_scene_path("leaderboard")
+	Scene_Manager.goto_scene(path,params)
 
 
 func _on_Question_pressed():
-	x = get_tree().change_scene("res://Scenes/questionScene/questionScene.tscn")
+
 	pass # Replace with function body.
 
 
 func _on_MapTest_pressed():
-	x = get_tree().change_scene("res://Scenes/expeditionScene/World Select/lobby/main_lobby.tscn")
+
 	pass # Replace with function body.
 
 
 func _on_logoutConfirm_confirmed():
-	var path = Scene_Manager.get_scene_path("login")
-	var params = {}
-	Scene_Manager.goto_scene(path,params)
+	Expedition_Lobby_Manager.clear_expeditions()
+	Network_Services.logout(self,"handle_logout")
+	
 	pass # Replace with function body.

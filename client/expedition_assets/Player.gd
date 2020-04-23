@@ -5,7 +5,7 @@ class_name Player
 export var speed : float = 300
 
 onready var joystick_move := $UI/JoystickMove
-onready var sprite = $Sprite
+onready var sprite = $AnimatedSprite
 var x
 const RADIUS = 45
 
@@ -13,13 +13,13 @@ const RADIUS = 45
 
 func _input(event):
 	if(event.is_action("ui_down")):
-		sprite.frame = 0
+		sprite.play("down")
 	elif(event.is_action("ui_up")):
-		sprite.frame = 12
+		sprite.play("up")
 	elif(event.is_action("ui_left")):
-		sprite.frame = 4
+		sprite.play("left")
 	elif(event.is_action("ui_right")):
-		sprite.frame = 8
+		sprite.play("right")
 	
 
 
@@ -42,8 +42,8 @@ func _move(delta: float) -> void:
 func _dynamicSpawn():
 	var x = _randomNumberGenerator(0, _getDisplaySize().x-300)
 	var y = _randomNumberGenerator(0, _getDisplaySize().y-300)
-	get_node("Sprite").position.x = x
-	get_node("Sprite").position.y = y
+	get_node("AnimatedSprite").position.x = x
+	get_node("AnimatedSprite").position.y = y
 	
 		
 

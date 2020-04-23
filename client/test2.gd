@@ -19,7 +19,7 @@ func init(params):
 	print(params)
 
 func _on_Button_pressed():
-	var next_scene = Scene_Manager.get_scene_path(1)
+	var next_scene = Scene_Manager.get_scene_path("test")
 	print(next_scene)
 	var myString = "called from test 2"
 	Scene_Manager.goto_scene(next_scene,myString)
@@ -32,7 +32,7 @@ func _on_Button2_pressed():
 
 func _on_Button3_pressed():
 	var params = {"self":self_stats,"enemy":enemy_stats,"timer":timer}
-	Battle_Manager.init_login(params)
+	Battle_Manager.init_battle(params)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

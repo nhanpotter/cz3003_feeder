@@ -1,0 +1,138 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://expedition_assets/Joystick/Joystick.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/World/Player.gd" type="Script" id=2]
+[ext_resource path="res://expedition_assets/character.png" type="Texture" id=3]
+[ext_resource path="res://expedition_assets/Joystick/fight.png" type="Texture" id=4]
+[ext_resource path="res://common_assets/Fonts/Login details.tres" type="DynamicFont" id=5]
+[ext_resource path="res://common_assets/Login/translucent.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 15.8094, 27.9837 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 42.9029
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 512.329, 289.352 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+vframes = 4
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="JoystickMove" parent="UI" instance=ExtResource( 1 )]
+margin_left = -2.90054
+margin_top = 93.3419
+margin_right = -526.901
+margin_bottom = 5.34198
+
+[node name="Background" parent="UI/JoystickMove" index="0"]
+margin_left = -196.0
+margin_top = 11.0
+margin_right = -0.999771
+margin_bottom = 200.0
+
+[node name="Handle" parent="UI/JoystickMove/Background" index="0"]
+margin_left = -33.7459
+margin_top = -31.2076
+margin_right = 32.2541
+margin_bottom = 34.7924
+
+[node name="Sprite2" type="Sprite" parent="UI"]
+position = Vector2( 924.017, 513.091 )
+scale = Vector2( 0.798593, 0.830584 )
+texture = ExtResource( 6 )
+
+[node name="QuitButton" type="Button" parent="UI/Sprite2"]
+margin_left = -80.189
+margin_top = -27.8934
+margin_right = 84.811
+margin_bottom = 28.1066
+custom_fonts/font = ExtResource( 5 )
+text = "Quit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="UI"]
+modulate = Color( 1, 1, 1, 0.623529 )
+position = Vector2( 932.41, 449.098 )
+scale = Vector2( 0.73749, 0.667368 )
+texture = ExtResource( 4 )
+
+[node name="actBtn" type="Button" parent="UI/Sprite"]
+modulate = Color( 1, 1, 1, 0 )
+light_mask = 0
+anchor_bottom = 0.059
+margin_left = -135.895
+margin_top = -59.8539
+margin_right = 104.105
+margin_bottom = 17.9181
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Complete" type="Panel" parent="UI"]
+visible = false
+modulate = Color( 1, 1, 1, 0.647059 )
+margin_left = 345.0
+margin_top = 154.0
+margin_right = 823.0
+margin_bottom = 334.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI/Complete"]
+margin_left = 26.0
+margin_top = 16.0
+margin_right = 358.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 5 )
+text = "You have completed this world! 
+Quit and try the next world!"
+
+[node name="Ok" type="Button" parent="UI/Complete"]
+margin_left = 177.053
+margin_top = 121.481
+margin_right = 283.053
+margin_bottom = 176.481
+custom_fonts/font = ExtResource( 5 )
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="UI"]
+margin_top = 10.0
+margin_right = 1024.0
+margin_bottom = 60.0
+custom_fonts/font = ExtResource( 5 )
+text = "Testing"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 2 )
+[connection signal="pressed" from="UI/Sprite2/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="UI/Sprite/actBtn" to="." method="_on_actBtn_pressed"]
+[connection signal="pressed" from="UI/Complete/Ok" to="." method="_on_Ok_pressed"]
+
+[editable path="UI/JoystickMove"]

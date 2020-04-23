@@ -53,6 +53,7 @@ func _on_fail_ssl_handshake():
 	print("SSL Handshake Error!!")
 	
 func _on_handle_login(result, response_code, headers, body):
+	print("_on_handle_login Network_Services") #debug
 	var body_string = body.get_string_from_utf8()
 	var success = handle_result_from_request(result, body_string)
 	if not success:

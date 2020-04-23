@@ -39,3 +39,22 @@ func clear_expeditions():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+# For testing
+signal get_lobby_success
+
+func test_request_expedition_list():
+	print("getting expeditions...") #debug
+	
+	Network_Services.get_lobby(self,"test_on_lobby_receive")
+
+
+# receive the lobby information
+func test_on_lobby_receive(result, response_code, headers, body):
+	var json = JSON.parse(body.get_string_from_utf8())
+
+	expedition_list.clear()
+	for expedition in json.result:
+		expedition_list.append(expedition)
+	print(expedition_list)	
+	emit_signal('get_lobby_success')

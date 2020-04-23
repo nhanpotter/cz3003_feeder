@@ -55,3 +55,15 @@ func on_avatar_receive(result,response_code,headers,body):
 	var temp_stats = json.result
 	Common_Services.set_user_stats(temp_stats)
 	
+# For testing
+signal get_avatar_success
+
+func test_get_avatar_info():
+	Network_Services.get_avatar(self,"test_on_avatar_receive")
+
+func test_on_avatar_receive(result,response_code,headers,body):
+	print("testing") #debug
+	var json = JSON.parse(body.get_string_from_utf8())
+	var temp_stats = json.result
+	Common_Services.set_user_stats(temp_stats)
+	emit_signal('get_avatar_success')

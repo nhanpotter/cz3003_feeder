@@ -45,3 +45,18 @@ func handle_worlds_request(result,response_code,headers,body):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+# For Testing
+signal get_expedition_success
+
+func test_request_worlds(expedition_id):
+	print(expedition_id) #debug
+	Network_Services.get_expedition(self,"test_handle_worlds_request",expedition_id)
+
+func test_handle_worlds_request(result,response_code,headers,body):
+	var json = JSON.parse(body.get_string_from_utf8())
+	print("received data : " + str(json.result)) #debug
+	worlds = json.result
+	request_flag = true
+
+	emit_signal('get_expedition_success')

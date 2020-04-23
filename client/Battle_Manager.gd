@@ -70,3 +70,8 @@ func resolve_battle(outcome):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+# For testing
+func test_init_battle():
+	player = Common_Services.get_user_stats()
+

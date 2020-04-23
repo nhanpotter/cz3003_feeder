@@ -40,3 +40,17 @@ func on_world_received(result,response_code,headers,body):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+# For Testing
+signal get_world_success
+
+func test_init_world(world):
+	Network_Services.get_world(self,"test_on_world_received",world["id"])
+
+var test_result
+func test_on_world_received(result,response_code,headers,body):
+	var json = JSON.parse(body.get_string_from_utf8())
+	test_result = json.result
+
+	emit_signal('get_world_success')

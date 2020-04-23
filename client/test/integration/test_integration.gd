@@ -50,7 +50,7 @@ func test_integration_common_and_network():
 		"Check integration between CommonServices and Network_Services")
 	
 
-func test_integration_expedition_world_and_network():
+func test_integration_expedition_and_network():
 	"""
 	Test Integration between Expedition and Network Subsystems
 	"""
@@ -70,13 +70,30 @@ func test_integration_expedition_world_and_network():
 	assert_ne(len(Expedition_Manager.worlds), 0, 
 		"Check integration between Expedition Lobby and Network_Services")
 
+	
+
+func test_integration_world_and_network():
+	"""
+	Test Integration between Expedition and Network Subsystems
+	"""
+	yield(self, 'login_success')
+	Network_Services.token = _token
+
+	Expedition_Lobby_Manager.test_request_expedition_list()
+	yield(Expedition_Lobby_Manager, 'get_lobby_success')
+		
+	var first_expedition = Expedition_Lobby_Manager.expedition_list[0]
+	Expedition_Manager.test_request_worlds(first_expedition.id)
+	yield(Expedition_Manager, 'get_expedition_success')
+
+
 	var first_world = Expedition_Manager.worlds[0]
 	World_Manager.test_init_world(first_world)
 	yield(World_Manager, 'get_world_success')
 
 	assert_not_null(World_Manager.test_result, 
 		"Check Integration between World_Manager and Network_Services")
-	
+
 
 func test_integration_expeditition_common_and_network():
 	"""

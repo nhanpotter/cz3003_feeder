@@ -15,6 +15,7 @@ func _ready():
 
 #initialize data for expedition lobby
 func init(params):
+	Expedition_List.clear()
 	Expedition_List = params
 	init_flag = true
 	
